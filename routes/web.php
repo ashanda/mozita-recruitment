@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployersController;
+use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -41,6 +44,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::resource('/admin/user', UserController::class);
+    Route::resource('/admin/employer', EmployersController::class);
+    Route::resource('/admin/employee', EmployeesController::class);
+    Route::resource('/admin/settings', SettingsController::class);
+    Route::get('status', [UserController::class, 'userOnlineStatus']);
 });
   
 /*------------------------------------------
@@ -56,10 +63,10 @@ Route::middleware(['auth', 'user-access:employer'])->group(function () {
 
 /*------------------------------------------
 --------------------------------------------
-All Employer Routes List
+All Employee Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::middleware(['auth', 'user-access:employer'])->group(function () {
+Route::middleware(['auth', 'user-access:employee'])->group(function () {
   
-    Route::get('/employer/home', [HomeController::class, 'employerHome'])->name('employer.home');
+    Route::get('/employee/home', [HomeController::class, 'employeeHome'])->name('employee.home');
 });

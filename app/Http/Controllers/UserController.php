@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -54,6 +59,8 @@ $user->email = $request->email;
 $user->password = Hash::make($request->password);
 $user->type = $request->type;
 $user->save();
+
+Alert::success('Success', 'user has been created successfully');
 return redirect()->route('user.index')
 ->with('success','Company has been created successfully.');
 }
@@ -101,18 +108,30 @@ $user->password = $request->password;
 $user->type = $request->type;
 $user->save();
 return redirect()->route('user.index')
-->with('success','Company Has Been updated successfully');
+->with('success','user has been updated successfully');
 }
+
+public function userOnlineStatus()
+    {
+        $users = User::all();
+        foreach ($users as $user) {
+            if (Cache::has('user-is-online-' . $user->id))
+                echo $user->name . " is online. Last seen: " . Carbon::parse($user->last_seen)->diffForHumans() . " <br>";
+            else
+                echo $user->name . " is offline. Last seen: " . Carbon::parse($user->last_seen)->diffForHumans() . " <br>";
+        }
+    }
+
 /**
 * Remove the specified resource from storage.
 *
 * @param  \App\Company  $company
 * @return \Illuminate\Http\Response
 */
-public function destroy(User $company)
+public function destroy(User $company,$id)
 {
-$company->delete();
-return redirect()->route('user.index')
-->with('success','Company has been deleted successfully');
+    $data = DB::table('users')->where('id', $id)->delete();
+    Alert::success('Success', 'User has been deleted successfully');
+    return redirect()->route('user.index');
 }
 }

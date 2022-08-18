@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->tinyInteger('type')->default(0);
             /* Users: 0=>None, 1=>Admin, 2=>Employer , 3=>Employee */
+            $table->timestamp('last_seen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -6,16 +6,16 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">All Users</h4>
-                    @if ($message = Session::get('success'))
-                    
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                     <strong>success!</strong> {{ $message }}.
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                     </div>  
-                     @endif
+                    <div class="row">
+                      <div class="pull-left text-left mb-2 col-md-6">
+                        <h4 class="card-title">All Users</h4>
+                      </div>
+                      <div class="pull-right text-right col-md-6">
+                      <a class="btn btn-primary" href="/admin/user/create">Add System User</a>
+                      </div>
+                      </div>
+                      
+                     
                     </div>
                     
                     <div class="table-responsive">

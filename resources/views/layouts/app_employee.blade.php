@@ -18,6 +18,9 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+ 
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
 </head>
@@ -26,8 +29,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{{ asset('images/logo.svg') }}" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('images/logo-mini.svg') }}" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="/admin/home"><img src="{{ asset('images/logo.svg') }}" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="/admin/home"><img src="{{ asset('images/logo-mini.svg') }}" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -96,10 +99,10 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile"/>
+              <img src="{{ asset('images/faces/face1.jpg')}}" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="{{ route('settings.index') }}">
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
@@ -116,11 +119,7 @@
                 </form>
             </div>
           </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <i class="icon-ellipsis"></i>
-            </a>
-          </li>
+          
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
@@ -131,7 +130,7 @@
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_settings-panel.html -->
       <div class="theme-setting-wrapper">
-        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close ti-close"></i>
           <p class="settings-heading">SIDEBAR SKINS</p>
@@ -323,7 +322,7 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <!-- plugins:js -->
   <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
@@ -344,6 +343,17 @@
   <!-- Custom js for this page-->
   <script src="{{ asset('js/dashboard.js') }}"></script>
   <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
+  <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#table').DataTable({
+          
+        });
+        
+    } );
+    
+     </script>
   <!-- End custom js for this page-->
 </body>
 

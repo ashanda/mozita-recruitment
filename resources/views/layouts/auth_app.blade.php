@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -20,20 +22,10 @@
 </head>
 
 <body>
-  <div class="container-scroller">
-    <div class="container-fluid page-body-wrapper full-page-wrapper">
-      <div class="content-wrapper d-flex align-items-center auth px-0">
-        <div class="row w-100 mx-0">
-          <div class="col-lg-4 mx-auto">
-            @yield('content')
-          </div>
-        </div>
-      </div>
-      <!-- content-wrapper ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
+  @yield('content')
+  
+            
+          
   <!-- plugins:js -->
   <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
