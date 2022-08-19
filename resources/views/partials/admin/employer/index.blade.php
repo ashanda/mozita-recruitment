@@ -40,55 +40,39 @@
                                     <th class="text-center">Position</th>
                                     <th class="text-center">Date First Contact Made</th>
                                     <th class="text-center">See notes history</th>
+                                    <th class="text-center">Action</th>
                                     
                                     
                                 </tr>
                             </thead>
                             <tbody>
+                                
+                                @foreach ($data as $employer)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
+                                    <td>{{ $employer->name }}</td>
+                                    <td>{{ $employer->company_branch }}</td>
+                                    <td>{{ $employer->company_name }}</td>
+                                    <td>{{ $employer->company_email }}</td>
+                                    <td>{{ $employer->company_address }}</td>
+                                    <td>{{ $employer->contact_person }}</td>
+                                    <td>{{ $employer->position }}</td>
+                                    <td>{{ $employer->date_first_contact_made }}</td>
+                                    @php
+                                       $user_notes = getUserNotes($employer->employer_id,$employer->employer_uid); 
+                                    @endphp
+                                    <td>{{ $user_notes->created_at }}</td>
+                                    <td>
+                                        <form action="{{ route('employer.destroy',$employer->id) }}" method="Post">
+                                        <a class="btn btn-primary" href="{{ route('employer.edit',$employer->id) }}">view</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011-07-25</td>
-                                    <td>$170,750</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009-01-12</td>
-                                    <td>$86,000</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Cedric Kelly</td>
-                                    <td>Senior Javascript Developer</td>
-                                    <td>Edinburgh</td>
-                                    <td>22</td>
-                                    <td>2012-03-29</td>
-                                    <td>$433,060</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                </tr>
+                                @endforeach
+                                
+                               
                                 
                             </tbody>
                         </table>
@@ -98,7 +82,7 @@
                 </div>
               </div>
             
-    
+    </div>
     <!-- content-wrapper ends -->
 @endsection
 

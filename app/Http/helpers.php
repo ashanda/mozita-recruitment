@@ -3,6 +3,10 @@
 
 use Illuminate\Http\Request;
 use Stevebauman\Location\Facades\Location;
+use Illuminate\Support\Facades\Cache;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 function userDetails()
     {
@@ -12,5 +16,20 @@ function userDetails()
         
         return $data;
     }
+
+ function UniqueRandomNumbersWithinRange($min,$max) {
+        $numbers = (time()+ rand($min,$max)); 
+        return $numbers;
+    }
+
+
+ function getUserNotes($note_id,$emp_uid){
+    $data = DB::table('notes')
+            ->where('note_id', '=', $note_id)
+            ->where('emp_uid', '=', $emp_uid)
+            ->orderBy('created_at','desc')
+            ->first();
+     return $data;       
+ }   
 
 ?>    
