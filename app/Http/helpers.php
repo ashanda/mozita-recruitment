@@ -32,4 +32,16 @@ function userDetails()
      return $data;       
  }   
 
+ function getParentcats($parent_catID){
+    $data = DB::table('categories')
+            ->where('id', '=', $parent_catID)
+            ->first();
+     return $data;       
+ }
+
+ function getSetting(){
+    $settings = DB::table('settings')->first();
+    return $settings;
+ }
+
 ?>    

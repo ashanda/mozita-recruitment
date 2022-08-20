@@ -1,0 +1,61 @@
+@extends('layouts.app_employee')
+
+@section('content')
+<div class="content-wrapper">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="pull-left text-left mb-2 col-md-6">
+                <h4 class="card-title">Job Categories</h4>
+              </div>
+              <div class="pull-right text-right col-md-6">
+                <a href="/employee/my_categories/create" class="btn btn-primary float-right">Create category</a>
+              </div>
+              </div>
+
+
+                
+                    
+                    
+              <div class="container">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Category Name</th>
+                                <th>Parent Category</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($categories as $category)
+                            <tr>
+                                <td>{{ $category->name}}</td>
+                                <td>
+                                    @if ($category->parent)
+                                        {{ $category->parent->name}}
+                                    @elseif ($category->parent == null)
+                                        No Parent
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ route('categories.edit', ['category'=> $category->id]) }}" class="btn btn-xs btn-info">Edit</a>
+                                    <form action="{{ route('categories.destroy', ['category'=> $category->id]) }}" method="POST" style="display: inline-block;">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn-xs btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+@endsection

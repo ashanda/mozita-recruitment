@@ -18,7 +18,19 @@
             </div>
             <div class="row mt-5">
               <div class="col-12 text-center mt-xl-2">
-                <a class="text-white font-weight-medium" href="/employer/home">Back to home</a>
+                @php
+                  $role = Auth::user()->type
+                @endphp
+                @if($role == 'admin')
+                  <a class="text-white font-weight-medium" href="{{ route('admin.home') }}">Back to home</a>
+                @elseif ($role == 'employer')
+                  <a class="text-white font-weight-medium" href="{{ route('employer.home') }}">Back to home</a>
+                @elseif ($role == 'employee')
+                  <a class="text-white font-weight-medium" href="{{ route('employee.home') }}">Back to home</a>
+                @else
+                  <a class="text-white font-weight-medium" href="{{ route('login') }}">Back to home</a>
+                @endif            
+                  
               </div>
             </div>
             <div class="row mt-5">

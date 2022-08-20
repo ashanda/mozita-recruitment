@@ -18,22 +18,28 @@ class EmployersController extends Controller
      */
     public function index()
     {
+        
         $role = Auth::user()->type;
         
         if($role == 'admin'){
             $data = DB::table('users')
             ->join('employers', 'employers.employer_uid', '=', 'users.id')
-            
-            
             ->get();
             
             return view('partials.admin.employer.index',compact('data'));
+        }  
+         
+        if($role == 'employer'){
+            $data = DB::table('users')
+            ->join('employers', 'employers.employer_uid', '=', 'users.id')
+            ->where('users.id', Auth::user()->id)
+            ->get();
             
-        }else if($role == 'employer'){
-
-        }else{
+            return view('partials.employer.employer.index',compact('data'));
 
         }
+
+    
         
       
         
@@ -46,7 +52,17 @@ class EmployersController extends Controller
      */
     public function create()
     {
-    return view('partials.admin.employer.create',/*$data*/);
+       $role = Auth::user()->type;
+        
+        if($role == 'admin'){
+            return view('partials.admin.employer.create');
+
+        }else if($role == 'employer'){
+            return view('partials.employer.employer.create');
+        }else{
+
+        } 
+    
     }
 
     /**
@@ -97,9 +113,17 @@ class EmployersController extends Controller
      * @param  \App\Models\Employer  $employer
      * @return \Illuminate\Http\Response
      */
-    public function show(Employer $employer)
+    public function show(Employer $request,$id)
     {
-        //
+        $role = Auth::user()->type;
+        $employer = Employer::find($id);
+        if($role == 'admin'){
+            return view('partials.admin.employer.show',compact('employer','id'));
+        }else if($role == 'employer'){
+            return view('partials.employer.employer.show');
+        }else{
+
+        }
     }
 
     /**
@@ -108,9 +132,17 @@ class EmployersController extends Controller
      * @param  \App\Models\Employer  $employer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employer $employer)
+    public function edit(Employer $request,$id)
     {
-        //
+        $role = Auth::user()->type;
+        $employer = Employer::find($id);
+        if($role == 'admin'){
+            return view('partials.admin.employer.edit',compact('employer','id'));
+        }else if($role == 'employer'){
+            return view('partials.employer.employer.edit');
+        }else{
+
+        } 
     }
 
     /**
@@ -120,7 +152,7 @@ class EmployersController extends Controller
      * @param  \App\Models\Employer  $employer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employer $employer)
+    public function update(Request $request, $id)
     {
         //
     }

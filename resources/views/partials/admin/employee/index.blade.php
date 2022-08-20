@@ -11,7 +11,7 @@
                         <h4 class="card-title">All Employees</h4>
                       </div>
                       <div class="pull-right text-right col-md-6">
-                      <a class="btn btn-primary" href="/admin/user/create">Add Employee</a>
+                      <a class="btn btn-primary" href="{{ route('employee.create') }}">Add Employee</a>
                       </div>
                       </div>
                     
@@ -32,63 +32,50 @@
                                 
                                 <tr>
                                     <th class="text-center">System User Name</th>
-                                    <th class="text-center">Branch</th>
-                                    <th class="text-center">Company Name</th>
-                                    <th class="text-center">Company Email</th>
-                                    <th class="text-center">Address</th>
-                                    <th class="text-center">Contact Person</th>
-                                    <th class="text-center">Position</th>
-                                    <th class="text-center">Date First Contact Made</th>
+                                    <th class="text-center">Job Category</th>
+                                    <th class="text-center">Job Sub Category</th>
+                                    <th class="text-center">Job <Title></Title></th>
+                                    <th class="text-center">Candidate Name</th>
+                                    <th class="text-center">Candidate Email</th>
+                                    <th class="text-center">CV</th>
+                                    <th class="text-center">Attachement</th>
                                     <th class="text-center">See notes history</th>
-                                    
+                                    <th class="text-center">Action</th>
                                     
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($data as $employee)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
+                                    <td>{{ $employee->employee_id }}</td>
+                                    @php
+                                       $job_parant_cat = getParentcats($employee->job_category); 
+                                    @endphp
+                                    <td>{{ $job_parant_cat->name }}</td>
+                                    <td>{{ $employee->job_sub_category }}</td>
+                                    <td>{{ $employee->job_title }}</td>
+                                    <td>{{ $employee->candidate_name }}</td>
+                                    <td>{{ $employee->candidate_email }}</td>
+                                    <td>{{ $employee->cv }}</td>
+                                    <td>{{ $employee->attachment }}</td>
+                                    @php
+                                       $user_notes = getUserNotes($employee->employee_id,$employee->employee_uid); 
+                                    @endphp
+                                    <td>{{ $user_notes->created_at }}</td>
+                                    <td>
+                                        <form action="{{ route('employee.destroy',$employee->id) }}" method="Post">
+                                        <a class="btn btn-warning" href="{{ route('employee.show',$employee->id) }}">View</a>
+                                        <a class="btn btn-primary" href="{{ route('employee.edit',$employee->id) }}">Edit</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011-07-25</td>
-                                    <td>$170,750</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009-01-12</td>
-                                    <td>$86,000</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Cedric Kelly</td>
-                                    <td>Senior Javascript Developer</td>
-                                    <td>Edinburgh</td>
-                                    <td>22</td>
-                                    <td>2012-03-29</td>
-                                    <td>$433,060</td>
-                                    <td>61</td>
-                                    <td>2011-04-25</td>
-                                    <td>$320,800</td>
-                                </tr>
+                                @endforeach
+                               
+                                
+                               
                                 
                             </tbody>
                         </table>

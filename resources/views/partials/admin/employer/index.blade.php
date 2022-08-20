@@ -11,7 +11,7 @@
                         <h4 class="card-title">All Employers</h4>
                       </div>
                       <div class="pull-right text-right col-md-6">
-                      <a class="btn btn-primary" href="/admin/employer/create">Add Employer</a>
+                      <a class="btn btn-primary" href="{{ route('employer.create') }}">Add Employer</a>
                       </div>
                       </div>
                     
@@ -26,6 +26,7 @@
                      @endif
                     </div>
                     <div class="container">
+                        
                     <div class="table-responsive">
                         <table class="table table-hover" id="table" style="width:100%">
                             <thead>
@@ -63,7 +64,8 @@
                                     <td>{{ $user_notes->created_at }}</td>
                                     <td>
                                         <form action="{{ route('employer.destroy',$employer->id) }}" method="Post">
-                                        <a class="btn btn-primary" href="{{ route('employer.edit',$employer->id) }}">view</a>
+                                        <a class="btn btn-warning" href="{{ route('employer.show',$employer->id) }}">View</a>
+                                        <a class="btn btn-primary" href="{{ route('employer.edit',$employer->id) }}">Edit</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

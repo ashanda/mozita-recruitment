@@ -1,12 +1,21 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployersController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserEmployersController;
+use App\Http\Controllers\UserEmployeesController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +33,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-  
+
+Route::get('/ajax-subcat',function (Request $request) {
+     $cat_id = $request->cat_id;
+     $subcategories = DB::table('categories')->where('parent_id', '=',$cat_id)->get();
+     return Response::json($subcategories);
+});
 /*------------------------------------------
 --------------------------------------------
 All Normal Users Routes List
@@ -46,6 +60,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('/admin/user', UserController::class);
     Route::resource('/admin/employer', EmployersController::class);
     Route::resource('/admin/employee', EmployeesController::class);
+    Route::resource('/admin/categories', CategoryController::class);
     Route::resource('/admin/settings', SettingsController::class);
     Route::get('status', [UserController::class, 'userOnlineStatus']);
 });
@@ -58,6 +73,10 @@ All Employer Routes List
 Route::middleware(['auth', 'user-access:employer'])->group(function () {
   
     Route::get('/employer/home', [HomeController::class, 'employerHome'])->name('employer.home');
+    // before route clear cache commet this line
+    Route::resource('/employer/user_employer', UserEmployersController::class);
+    //------------------------------------------
+
 });
 
 
@@ -69,4 +88,8 @@ All Employee Routes List
 Route::middleware(['auth', 'user-access:employee'])->group(function () {
   
     Route::get('/employee/home', [HomeController::class, 'employeeHome'])->name('employee.home');
+    // before route clear cache commet this line
+    Route::resource('/employee/user_employee',  UserEmployeesController::class);
+    //------------------------------------------
+
 });

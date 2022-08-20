@@ -17,13 +17,13 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->integer('employee_id');
             $table->integer('employee_uid');
-            $table->integer('job_category');
-            $table->integer('job_sub_category');
+            $table->string('job_category');
+            $table->string('job_sub_category');
             $table->string('job_title');
             $table->string('candidate_name');
             $table->string('candidate_email');
-            $table->string('attachment');
-            $table->string('remarks');
+            $table->string('cv');
+            $table->string('attachment'); 
             $table->timestamps();
         });
     }

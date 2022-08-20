@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/admin/home">
+            <a class="nav-link" href="{{ route('admin.home') }}">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -31,7 +31,7 @@
             <div class="collapse" id="employee" style="">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link " href="{{ route('employee.index') }}">All Employees</a></li>
-                <li class="nav-item"> <a class="nav-link " href="{{ route('employee.index') }}">Job Category</a></li>
+                <li class="nav-item"> <a class="nav-link " href="{{ route('categories.index') }}">Job Category</a></li>
               </ul>
             </div>
           </li>
