@@ -73,7 +73,6 @@ class EmployersController extends Controller
      */
     public function store(Request $request)
     {
-       
         $employer_id = UniqueRandomNumbersWithinRange(1,100000);
         //employer save
         $employer = new Employer();
