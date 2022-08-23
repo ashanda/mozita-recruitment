@@ -29,7 +29,7 @@
   <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="form-group">
     <strong>Job Name  :</strong>
-    <input type="text" name="job_name" class="form-control" value="{{ $employee->job_name }}" required>
+    <input type="text" name="job_name" class="form-control" value="{{ $employee->job_title }}" required>
     @error('job_name')
     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
     @enderror
@@ -57,7 +57,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="form-group">
       <strong>Candidate Name  :</strong>
-      <input type="text" name="candidate_name" class="form-control" value="{{ $employee->job_name }}" required>
+      <input type="text" name="candidate_name" class="form-control" value="{{ $employee->candidate_name }}" required>
       @error('candidate_name')
       <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
       @enderror
@@ -66,7 +66,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="form-group">
     <strong>Candidate Email:</strong>
-    <input type="email" name="candidate_email" class="form-control" value="{{ $employee->job_name }}" required>
+    <input type="email" name="candidate_email" class="form-control" value="{{ $employee->candidate_email }}" required>
     @error('candidate_email')
     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
     @enderror
@@ -75,7 +75,8 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="form-group">
       <strong>CV upload :</strong>
-      <img src="{{ asset('storage/'.$employee->cv) }}" alt="" width="100px" height="100px">
+      
+    
       <input type="file" name="cv_file" placeholder="Choose file" id="file" required>
       @error('cv_file')
       <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -85,7 +86,8 @@
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
         <strong>Attachment :</strong>
-        <img src="{{ asset('storage/'.$employee->attachment) }}" alt="" width="100px" height="100px">
+        
+
         <input type="file" name="attachment" placeholder="Choose file" id="file">
         @error('attachment')
         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

@@ -10,6 +10,7 @@
                       <div class="row">
 <div class="pull-left text-left mb-2 col-md-6">
   <h4 class="card-title">Add Employee</h4>
+  
 </div>
 <div class="pull-right text-right col-md-6">
 <a class="btn btn-primary" href="{{ route('employee.index') }}"> Back</a>
@@ -67,7 +68,9 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="form-group">
       <strong>CV upload :</strong>
-      <input type="file" name="cv_file" placeholder="Choose file" id="file" required>
+      <a href="{{ asset('upload/cv/'.$employee->cv) }}" download>
+        Download
+      </a> 
       @error('cv_file')
       <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
       @enderror
@@ -76,7 +79,10 @@
       <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
         <strong>Attachment :</strong>
-        <input type="file" name="attachment" placeholder="Choose file" id="file">
+        <a href="{{ asset('upload/attachment/'.$employee->attachment) }}" download>
+          Download
+        </a> 
+        
         @error('attachment')
         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
         @enderror
@@ -85,12 +91,15 @@
     </div>  
     <div class= "col-xs-8 col-sm-8 col-md-8">
         <div id="dynamicAddRemove">
+          @foreach ($notes as $note )
+            
+          
           <div class="row">
           <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
             <strong>Remarks :</strong>
-            <textarea name="addMoreInputFields[0][note]" class="form-control" >
-            </textarea>
+            <input type="text" name="addMoreInputFields[0][note]" class="form-control" value="{{ $note->note }}" readonly>
+            
             @error('addMoreInputFields[0][note]')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
             @enderror
@@ -99,23 +108,19 @@
             <div class="col-xs-5 col-sm-5 col-md-5">
               <div class="form-group">
               <strong>Reminder :</strong>
-              <input type="datetime-local" name="addMoreInputFields[0][reminder]" class="form-control" >
+              <input type="datetime-local" name="addMoreInputFields[0][reminder]" class="form-control" value="{{ $note->remind_me  }}" readonly>
               @error('addMoreInputFields[0][reminder]')
               <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
               @enderror
               </div>
               </div>
-              <div class="col-xs-1 col-sm-1 col-md-1">
-                <div class="form-group add_new_item">
-                
-                  <button type="button" name="add" id="add-note" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i></button>
-                </div>
-              </div>
+              
           </div>
+          @endforeach
         </div>
         
         
-        <button type="submit" class="btn btn-primary ml-3">Save</button>
+        
         </div>
 
 

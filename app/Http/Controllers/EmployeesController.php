@@ -119,10 +119,15 @@ class EmployeesController extends Controller
     {
         $role = Auth::user()->type;
         $employee = Employee::find($id);
+        $notes = DB::table('notes')
+        ->where('note_id', '=', $employee->employee_id)
+        ->orderBy('remind_me','ASC')
+        ->get();
+        
         if($role == 'admin'){
-            return view('partials.admin.employee.show',compact('employee','id'));
-        }else if($role == 'employer'){
-            return view('partials.employer.employee.show',compact('employee','id'));
+            return view('partials.admin.employee.show',compact('employee','id','notes'));
+        }else if($role == 'employee'){
+            return view('partials.employer.employee.show',compact('employee','id','notes'));
         }else{
 
         } 
@@ -138,10 +143,12 @@ class EmployeesController extends Controller
     {
         $role = Auth::user()->type;
         $employee = Employee::find($id);
+        
+        $s = Category::all()->where('parent_id','=','0');
         if($role == 'admin'){
-            return view('partials.admin.employee.edit',compact('employee','id'));
-        }else if($role == 'employer'){
-            return view('partials.employer.employee.edit',compact('employee','id'));
+            return view('partials.admin.employee.edit',compact('employee','id','s'));
+        }else if($role == 'employee'){
+            return view('partials.employer.employee.edit',compact('employee','id','s'));
         }else{
 
         } 

@@ -303,12 +303,10 @@
       <!-- partial:partials/_footer.html -->
         <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <?php echo date("Y"); ?>.  <a href="https://yogeemedia.com/" target="_blank">Yogeemedia</a> . All rights reserved.</span>
+            
             </div>
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span> 
-            </div>
+            
         </footer> 
         <!-- partial -->
         </div>
@@ -353,7 +351,7 @@
       var i = 0;
       $("#add-note").click(function () {
           ++i;
-          $("#dynamicAddRemove").append('<div class ="row"><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Notes :</strong><textarea name="addMoreInputFields['+i+'][note]" class="form-control"></textarea></div></div><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Reminder :</strong><input type="datetime-local" name="addMoreInputFields['+i+'][reminder]" class="form-control"></div></div><div class="col-xs-1 col-sm-1 col-md-1"><div class="form-group add_new_item"><button type="button" class="btn btn-danger remove-tr"><i class="bi bi-dash-circle"></i></button></div></div></div>');
+          $("#dynamicAddRemove").append('<div class ="row"><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Notes :</strong><textarea name="addMoreInputFields['+i+'][note]" class="form-control"></textarea></div></div><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Reminder :</strong><input type="datetime-local" name="addMoreInputFields['+i+'][reminder]" class="form-control"></div></div><div class="col-xs-1 col-sm-1 col-md-1"><div class="form-group add_new_item"><button type="button" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div></div>');
       });
       $(document).on('click', '.remove-input-field', function () {
           $(this).parents('div').remove();

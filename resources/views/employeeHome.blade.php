@@ -42,7 +42,7 @@
                     @php
                       $data = userDetails();
                     @endphp
-                   
+                  
                     <h4 class="location font-weight-normal">{{ $data->cityName }}</h4>
                     <h6 class="font-weight-normal">{{ $data->countryName }}</h6>
                   </div>
@@ -56,7 +56,7 @@
             <div class="col-md-6 mb-4 stretch-card transparent">
               <div class="card card-tale">
                 <div class="card-body">
-                  <p class="mb-4">Today’s Bookings</p>
+                  <p class="mb-4">Today's Bookings</p>
                   <p class="fs-30 mb-2">4006</p>
                   <p>10.00% (30 days)</p>
                 </div>

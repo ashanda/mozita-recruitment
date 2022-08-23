@@ -116,8 +116,12 @@ class EmployersController extends Controller
     {
         $role = Auth::user()->type;
         $employer = Employer::find($id);
+        $notes = DB::table('notes')
+        ->where('note_id', '=', $employer->employer_id)
+        ->orderBy('remind_me','ASC')
+        ->get();
         if($role == 'admin'){
-            return view('partials.admin.employer.show',compact('employer','id'));
+            return view('partials.admin.employer.show',compact('employer','id','notes'));
         }else if($role == 'employer'){
             return view('partials.employer.employer.show');
         }else{
