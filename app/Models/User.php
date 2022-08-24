@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -46,12 +47,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected function type(): Attribute
+
+    protected function gettypeAttribute($value){
+        return ["none", "admin", "employer" , "employee"][$value];
+    }
+    
+    /*protected function type(): Attribute
+    
     {
+        
         return new Attribute(
+            
             
             get: fn ($value) =>  ["none", "admin", "employer" , "employee"][$value],
             
         );
-    }
+    }*/
 }

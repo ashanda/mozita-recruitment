@@ -20,6 +20,7 @@ class CreateNotesTable extends Migration
             $table->timestamp('remind_me');
             $table->string('note');
             $table->timestamps();
+            
         });
     }
 
