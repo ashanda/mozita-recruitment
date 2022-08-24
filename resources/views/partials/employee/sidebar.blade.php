@@ -17,7 +17,7 @@
       <div class="collapse" id="employee" style="">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link " href="{{ route('user_employee.index') }}">All Employees</a></li>
-          <li class="nav-item"> <a class="nav-link " href="">Job Category</a></li>
+          <li class="nav-item"> <a class="nav-link " href="{{ route('user_categories.index') }}">Job Category</a></li>
         </ul>
       </div>
     </li>

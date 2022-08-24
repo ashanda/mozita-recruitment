@@ -10,10 +10,12 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserEmployersController;
 use App\Http\Controllers\UserEmployeesController;
+use App\Http\Controllers\UserCategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
+
 
 
 
@@ -75,6 +77,7 @@ Route::middleware(['auth', 'user-access:employer'])->group(function () {
     Route::get('/employer/home', [HomeController::class, 'employerHome'])->name('employer.home');
     // before route clear cache commet this line
     Route::resource('/employer/user_employer', UserEmployersController::class);
+    
     //------------------------------------------
 
 });
@@ -90,6 +93,7 @@ Route::middleware(['auth', 'user-access:employee'])->group(function () {
     Route::get('/employee/home', [HomeController::class, 'employeeHome'])->name('employee.home');
     // before route clear cache commet this line
     Route::resource('/employee/user_employee',  UserEmployeesController::class);
+    Route::resource('/employer/user_categories', UserCategoryController::class);
     //------------------------------------------
 
 });

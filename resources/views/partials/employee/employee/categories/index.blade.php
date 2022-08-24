@@ -10,7 +10,7 @@
                 <h4 class="card-title">Job Categories</h4>
               </div>
               <div class="pull-right text-right col-md-6">
-                <a href="/employee/my_categories/create" class="btn btn-primary float-right">Create category</a>
+                <a href="{{ route('user_categories.create') }}" class="btn btn-primary float-right">Create category</a>
               </div>
               </div>
 
@@ -40,8 +40,9 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ route('categories.edit', ['category'=> $category->id]) }}" class="btn btn-xs btn-info">Edit</a>
-                                    <form action="{{ route('categories.destroy', ['category'=> $category->id]) }}" method="POST" style="display: inline-block;">
+                                    
+                                    <a href="{{ route('user_categories.edit', $category->id )}}" class="btn btn-xs btn-info">Edit</a>
+                                    <form action="{{ route('user_categories.destroy', $category->id ) }}" method="POST" style="display: inline-block;">
                                         @method('DELETE')
                                         @csrf
                                         <button class="btn btn-xs btn-danger">Delete</button>
