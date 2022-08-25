@@ -19,9 +19,9 @@ class Kernel extends ConsoleKernel
          $schedule->command('notification:cron')->timezone('Asia/Colombo')->everyMinute();
        // $schedule->command('backup:run')->daily();
 
-        $schedule->call(function () {
+       /* $schedule->call(function () {
             Log::info("cron job is run");
-        })->everyMinute();
+        })->everyMinute();*/
         
     }
 
