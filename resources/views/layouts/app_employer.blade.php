@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
  
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ asset('upload/setting/'.getSetting()->app_favicon) }}" />
 </head>
 <body>
   <div class="container-scroller">
