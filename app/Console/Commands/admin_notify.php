@@ -4,9 +4,9 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use App\Models\Notification;
 
-
-class notification extends Command
+class admin_notify extends Command
 {
     /**
      * The name and signature of the console command.
@@ -38,7 +38,7 @@ class notification extends Command
      * @return int
      */
     public function handle()
-    { 
+    {
         $expire_stamp = date('Y-m-d H:i:s', strtotime("+5 min"));
         $now_stamp    = date("Y-m-d H:i:s");
          $datas =  DB::table('users')
@@ -52,8 +52,5 @@ class notification extends Command
      
            Notification::updateOrCreate($matchThese,['system_id'=>$data->note_id, 'note'=>$data->note, 'reminder'=>$data->remind_me]);
         }
-     
-        
-       
     }
 }

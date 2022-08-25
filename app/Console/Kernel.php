@@ -21,8 +21,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function () {
             Log::info("cron job is run");
-        })->timezone('Asia/Colombo')
-          ->dailyAt('02:00');
+        })->everyMinute();
         
     }
 
