@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
+use Illuminate\Support\Facades\Log;
 class Kernel extends ConsoleKernel
 {
     /**
@@ -16,6 +16,14 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+         $schedule->command('notification:cron')->timezone('Asia/Colombo')->everyMinute();
+       // $schedule->command('backup:run')->daily();
+
+        $schedule->call(function () {
+            Log::info("cron job is run");
+        })->timezone('Asia/Colombo')
+          ->dailyAt('02:00');
+        
     }
 
     /**
