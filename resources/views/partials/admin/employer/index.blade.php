@@ -32,7 +32,7 @@
                             <thead>
                                 
                                 <tr>
-                                    <th class="text-center">System User Name</th>
+                                    <th class="text-center">System ID</th>
                                     <th class="text-center">Branch</th>
                                     <th class="text-center">Company Name</th>
                                     <th class="text-center">Company Email</th>

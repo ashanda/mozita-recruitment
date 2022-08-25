@@ -168,6 +168,12 @@ class EmployersController extends Controller
      */
     public function destroy(Employer $employer)
     {
-        //
+        if ($employer->delete()) {
+            Alert::success('Success', 'Employer delete successfully');
+            return redirect()->back();
+
+        }
+        Alert::warning('Fail', 'Employer delete faild');
+        return redirect()->back();
     }
 }

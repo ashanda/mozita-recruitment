@@ -172,8 +172,14 @@ class EmployeesController extends Controller
      * @param  \App\Models\Employer  $employer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employer)
+    public function destroy(Employee $employee)
     {
-        //
+        if ($employee->delete()) {
+            Alert::success('Success', 'Employee delete successfully');
+            return redirect()->back()->with(['success' => 'Category successfully deleted.']);
+
+        }
+        Alert::warning('Fail', 'Employee delete faild');
+        return redirect()->back()->with(['fail' => 'Unable to delete category.']);
     }
 }

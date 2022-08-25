@@ -15,8 +15,11 @@ class UserCategoryController extends Controller
        
         
         if($role == 'employee'){
+
             $categories = Category::all();
-            return view('partials.employee.employee.categories.index')->with(compact(['categories']));
+            
+            return view('partials.employee.employee.categories.index', compact('categories'));
+            
         }        
         
     }
@@ -32,7 +35,7 @@ class UserCategoryController extends Controller
        
 
         if($role == 'employee'){
-            $categories = Category::all();
+            $categories = Category::where('parent_id', 0)->get();
             return view('partials.employee.employee.categories.create')->with(compact(['categories']));
         }
     }
@@ -52,7 +55,7 @@ class UserCategoryController extends Controller
         if ($category->save() ) {
             
             Alert::success('Success', 'Job category created successfully');
-            return redirect()->route('categories.index');
+            return redirect()->route('user_categories.index');
         }
         Alert::warning('Fail', 'Job category created faild');
         return redirect()->back();
@@ -64,13 +67,15 @@ class UserCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Category $category,$id)
     {
-        $categories = Category::all();
         
+        $category = Category::find($id);
+        $categories = Category::where('parent_id', 0)->get();
         $role = Auth::user()->type;
+        
+        return view('partials.employee.employee.categories.edit',['category' => $category])->with(compact('categories'));
 
-            return view('partials.employee.employee.categories.edit')->with(compact(['category', 'categories']));
         
     }
 
@@ -88,7 +93,7 @@ class UserCategoryController extends Controller
 
         if ($category->save() ) {
             Alert::success('Success', 'Job category update successfully');
-            return redirect()->route('categories.index');   
+            return redirect()->route('user_categories.index');   
         }
         Alert::warning('Fail', 'Job category updated faild');
         return redirect()->back();
@@ -100,9 +105,9 @@ class UserCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        if ($category->delete()) {
+        if (Category::where('id', $id)->delete()) {
             Alert::success('Success', 'Job category delete successfully');
             return redirect()->back()->with(['success' => 'Category successfully deleted.']);
 

@@ -7,6 +7,34 @@ use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Notification;
+
+
+// cron job
+function notify_user(){
+   $expire_stamp = date('Y-m-d H:i:s', strtotime("+5 min"));
+   $now_stamp    = date("Y-m-d H:i:s");
+    $datas =  DB::table('users')
+             ->join('notes','notes.emp_uid','users.id')
+             ->where('notes.remind_me' ,'<', $now_stamp)  
+             ->where('users.last_seen' ,'<', $expire_stamp)
+             ->whereIn('users.type',  [3,2])
+             ->get();
+   foreach( $datas as $data){
+      $matchThese = ['system_id'=>$data->note_id];
+
+      Notification::updateOrCreate($matchThese,['system_id'=>$data->note_id, 'note'=>$data->note, 'reminder'=>$data->remind_me]);
+   }
+
+   return ;
+}
+
+// notification 
+
+function notificatio_read(){
+   $notification = Notification::where('status',0)->get();
+   return $notification;
+}
 
 function userDetails()
     {

@@ -1,4 +1,4 @@
-@extends('layouts.app_employer')
+@extends('layouts.app_admin')
   
 @section('content')
 
@@ -8,11 +8,9 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="pull-left text-left mb-2 col-md-6">
-                        <h4 class="card-title">All Employers</h4>
+                        <h4 class="card-title">All Notification</h4>
                       </div>
-                      <div class="pull-right text-right col-md-6">
-                      <a class="btn btn-primary" href="{{ route('user_employer.create') }}">Add Employer</a>
-                      </div>
+                      
                       </div>
                     
                     @if ($message = Session::get('success'))
@@ -33,14 +31,9 @@
                                 
                                 <tr>
                                     <th class="text-center">System ID</th>
-                                    <th class="text-center">Branch</th>
-                                    <th class="text-center">Company Name</th>
-                                    <th class="text-center">Company Email</th>
-                                    <th class="text-center">Address</th>
-                                    <th class="text-center">Contact Person</th>
-                                    <th class="text-center">Position</th>
-                                    <th class="text-center">Date First Contact Made</th>
-                                    <th class="text-center">See notes history</th>
+                                    <th class="text-center">Note</th>
+                                    <th class="text-center">Remineder </th>
+                                    
                                     <th class="text-center">Action</th>
                                     
                                     
@@ -48,24 +41,17 @@
                             </thead>
                             <tbody>
                                 
-                                @foreach ($user_data as $employer)
+                                @foreach ($notifications_all as $employer)
                                 <tr>
-                                    <td>{{ $employer->name }}</td>
-                                    <td>{{ $employer->company_branch }}</td>
-                                    <td>{{ $employer->company_name }}</td>
-                                    <td>{{ $employer->company_email }}</td>
-                                    <td>{{ $employer->company_address }}</td>
-                                    <td>{{ $employer->contact_person }}</td>
-                                    <td>{{ $employer->position }}</td>
-                                    <td>{{ $employer->date_first_contact_made }}</td>
-                                    @php
-                                       $user_notes = getUserNotes($employer->employer_id,$employer->employer_uid); 
-                                    @endphp
-                                    <td>{{ $user_notes->created_at }}</td>
+                                    <td>{{ $employer->system_id }}</td>
+                                    <td>{{ $employer->note }}</td>
+                                    <td>{{ $employer->reminder }}</td>
+
+                                    
                                     <td>
-                                        <form action="{{ route('employer.destroy',$employer->id) }}" method="Post">
-                                        <a class="btn btn-warning" href="{{ route('employer.show',$employer->id) }}">View</a>
-                                        <a class="btn btn-primary" href="{{ route('employer.edit',$employer->id) }}">Edit</a>
+                                        <form action="{{ route('notification.destroy',$employer->id) }}" method="Post">
+                                        
+                                        <a class="btn btn-primary" href="{{ route('notification.edit',$employer->id) }}">Read</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

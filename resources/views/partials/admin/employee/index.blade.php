@@ -31,7 +31,7 @@
                             <thead>
                                 
                                 <tr>
-                                    <th class="text-center">System User Name</th>
+                                    <th class="text-center">System ID</th>
                                     <th class="text-center">Job Category</th>
                                     <th class="text-center">Job Sub Category</th>
                                     <th class="text-center">Job <Title></Title></th>

@@ -25,13 +25,15 @@
                      </div>  
                      @endif
                     </div>
+                  
                     <div class="container">
                     <div class="table-responsive">
                         <table class="table table-hover" id="table" style="width:100%">
                             <thead>
                                 
                                 <tr>
-                                    <th class="text-center">System User Name</th>
+                                    <
+                                    <th class="text-center">System ID</th>
                                     <th class="text-center">Job Category</th>
                                     <th class="text-center">Job Sub Category</th>
                                     <th class="text-center">Job <Title></Title></th>
@@ -45,7 +47,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $employee)
+                                @foreach ($user_data as $employee)
                                 <tr>
                                     <td>{{ $employee->employee_id }}</td>
                                     @php
@@ -63,9 +65,9 @@
                                     @endphp
                                     <td>{{ $user_notes->created_at }}</td>
                                     <td>
-                                        <form action="{{ route('employee.destroy',$employee->id) }}" method="Post">
-                                        <a class="btn btn-warning" href="{{ route('employee.show',$employee->id) }}">View</a>
-                                        <a class="btn btn-primary" href="{{ route('employee.edit',$employee->id) }}">Edit</a>
+                                        <form action="{{ route('user_employee.destroy',$employee->id) }}" method="Post">
+                                        <a class="btn btn-warning" href="{{ route('user_employee.show',$employee->id) }}">View</a>
+                                        <a class="btn btn-primary" href="{{ route('user_employee.edit',$employee->id) }}">Edit</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

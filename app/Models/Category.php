@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = ['parent_id', 'name'];
-
+    protected $primaryKey = 'id';
     public function childs()
     {
     	return $this->hasMany(Category::class, 'parent_id');

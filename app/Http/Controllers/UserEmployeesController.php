@@ -23,12 +23,12 @@ class UserEmployeesController extends Controller
     {
         $role = Auth::user()->type;
         if($role == 'employee'){
-            $data = DB::table('users')
+            $user_data = DB::table('users')
             ->join('employees', 'employees.employee_uid', '=', 'users.id')
             ->where('users.id', Auth::user()->id)
             ->get();
             
-            return view('partials.employee.employee.index',compact('data'));
+            return view('partials.employee.employee.index',compact('user_data'));
 
         }
     }
@@ -108,11 +108,17 @@ class UserEmployeesController extends Controller
      */
     public function show(Employee $request, $id)
     {
+        
         $role = Auth::user()->type;
         $employee = Employee::find($id);
-        if($role == 'employee'){
-            return view('partials.employer.employee.show',compact('employee','id'));
-        }
+        $notes = DB::table('notes')
+        ->where('note_id', '=', $employee->employee_id)
+        ->orderBy('remind_me','ASC')
+        ->get();
+        
+        
+            return view('partials.employee.employee.show',compact('employee','id','notes'));
+        
     }
 
     /**
@@ -152,6 +158,12 @@ class UserEmployeesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Employee::where('id', $id)->delete()) {
+            Alert::success('Success', 'Employee delete successfully');
+            return redirect()->back();
+
+        }
+        Alert::warning('Fail', 'Employee delete faild');
+        return redirect()->back();
     }
 }

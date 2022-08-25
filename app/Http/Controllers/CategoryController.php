@@ -18,13 +18,10 @@ class CategoryController extends Controller
         $role = Auth::user()->type;
        
         if($role == 'admin'){
-            $categories = Category::where('parent_id', 0)->get();
+            $categories = Category::all();
             return view('partials.admin.employee.categories.index', compact('categories'));
         }
-        if($role == 'employee'){
-            $categories = Category::all();
-            return view('partials.employee.employee.categories.index')->with(compact(['categories']));
-        }        
+               
         
     }
 

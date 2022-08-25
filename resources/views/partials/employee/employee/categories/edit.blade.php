@@ -14,6 +14,7 @@
               </div>
 
                     
+      
                     
 
                     <form action="{{ route('user_categories.update', $category->id ) }}" method="post">

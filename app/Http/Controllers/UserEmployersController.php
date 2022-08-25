@@ -20,12 +20,12 @@ class UserEmployersController extends Controller
     {
         $role = Auth::user()->type;
         if($role == 'employer'){
-            $data = DB::table('users')
+            $user_data = DB::table('users')
             ->join('employers', 'employers.employer_uid', '=', 'users.id')
             ->where('users.id', Auth::user()->id)
             ->get();
             
-            return view('partials.employer.employer.index',compact('data'));
+            return view('partials.employer.employer.index',compact('user_data'));
 
         }
     }
@@ -134,6 +134,12 @@ class UserEmployersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Employer::where('id', $id)->delete()) {
+            Alert::success('Success', 'Employer delete successfully');
+            return redirect()->back();
+
+        }
+        Alert::warning('Fail', 'Employer delete faild');
+        return redirect()->back();
     }
 }
