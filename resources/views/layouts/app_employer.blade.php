@@ -254,7 +254,7 @@
       <!-- partial:partials/_footer.html -->
       <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <?php echo date("Y"); ?>.  <a href="https://yogeemedia.com/" target="_blank">Yogeemedia</a> . All rights reserved.</span>
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <?php echo date("Y"); ?>.  <a href="https://mozita.digital/" target="_blank">Mozita Digital</a> . All rights reserved.</span>
         
         </div>
         

@@ -29,7 +29,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12">
   <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="form-group">
-    <strong>System ID :</strong>
+    <strong>Employee ID :</strong>
     <input type="text" name="system_id" class="form-control" value="{{ $notifications_ones->system_id }}" readonly>
     @error('system_id')
     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
