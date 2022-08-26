@@ -32228,6 +32228,11 @@ div.tagsinput span.tag a {
     background: #4B49AC;
     top: 1px;
     border: 1px solid #ffffff;
+    /* Kasun nes css */
+    width: 30px;
+    height: auto;
+    top: -12px;
+    color: #fff;
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .count-indicator:after {
@@ -34822,11 +34827,3 @@ div.tagsinput span.tag a {
 .add_new_item {
     margin-top: 1.5rem;
 }
-
-/* New css Kasun */
-.navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .count-indicator .count {
-    width: 30px;
-    height: auto;
-    top: -12px;
-    color: #fff;
-  }
