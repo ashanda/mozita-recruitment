@@ -32222,17 +32222,14 @@ div.tagsinput span.tag a {
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .count-indicator .count {
     position: absolute;
     left: 36%;
-    width: 12px;
-    height: 12px;
-    border-radius: 100%;
-    background: #4B49AC;
-    top: 1px;
-    border: 1px solid #ffffff;
-    /* Kasun nes css */
     width: 30px;
     height: auto;
+    border-radius: 100%;
+    background: #4B49AC;
     top: -12px;
+    border: 1px solid #ffffff;
     color: #fff;
+    
 }
 
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .count-indicator:after {
