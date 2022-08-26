@@ -10984,10 +10984,3 @@ a.text-dark:focus {
   }
 }
 
-/* New css Kasun */
-.navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .count-indicator .count {
-  width: 30px;
-  height: auto;
-  top: -12px;
-  color: #fff;
-}
