@@ -12,6 +12,7 @@ use App\Http\Controllers\UserEmployersController;
 use App\Http\Controllers\UserEmployeesController;
 use App\Http\Controllers\UserCategoryController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\UserNotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -78,7 +79,7 @@ Route::middleware(['auth', 'user-access:employer'])->group(function () {
   
     Route::get('/employer/home', [HomeController::class, 'employerHome'])->name('employer.home');
     Route::resource('/employer/user_employer', UserEmployersController::class);
-    
+    Route::resource('/employer/user_notification', UserNotificationController::class);
     //------------------------------------------
 
 });

@@ -94,7 +94,7 @@
         </div>
     </div>  
     <div class= "col-xs-8 col-sm-8 col-md-8">
-        <div id="dynamicAddRemove">
+        <div id="dynamicAddRemove2">
           <div class="row">
           <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
@@ -106,19 +106,11 @@
             @enderror
             </div>
             </div>
-            <div class="col-xs-5 col-sm-5 col-md-5">
-              <div class="form-group">
-              <strong>Reminder :</strong>
-              <input type="datetime-local" name="addMoreInputFields[0][reminder]" class="form-control" >
-              @error('addMoreInputFields[0][reminder]')
-              <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-              @enderror
-              </div>
-              </div>
+            
               <div class="col-xs-1 col-sm-1 col-md-1">
                 <div class="form-group add_new_item">
                 
-                  <button type="button" name="add" id="add-note" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i></button>
+                  <button type="button" name="add" id="add-note2" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i></button>
                 </div>
               </div>
           </div>

@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Notification;
 
 
+//test 
+
+
 // cron job
 function notify_user(){
    $expire_stamp = date('Y-m-d H:i:s', strtotime("+5 min"));
@@ -33,6 +36,11 @@ function notify_user(){
 
 function notificatio_read(){
    $notification = Notification::where('status',0)->get();
+   return $notification;
+}
+
+function notificatio_read_emp($id){
+   $notification = Notification::where(['emp_uid' => $id,'status' => 0])->get();
    return $notification;
 }
 

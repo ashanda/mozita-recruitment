@@ -50,7 +50,7 @@ class admin_notify extends Command
         foreach( $datas as $data){
            $matchThese = ['system_id'=>$data->note_id];
      
-           Notification::updateOrCreate($matchThese,['system_id'=>$data->note_id, 'note'=>$data->note, 'reminder'=>$data->remind_me]);
+           Notification::updateOrCreate($matchThese,['emp_uid'=>$data->emp_uid,'system_id'=>$data->note_id, 'note'=>$data->note, 'reminder'=>$data->remind_me]);
         }
     }
 }

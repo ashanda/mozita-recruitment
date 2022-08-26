@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Notification;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-class NotificationController extends Controller
+
+class UserNotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,8 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        $notifications_all = Notification::all();
-        return view('partials.admin.notification.index', compact('notifications_all'));
+        $notifications_all = Notification::where(Auth::user()->id);
+        return view('partials.employer.notification.index', compact('notifications_all'));
 
     }
 
@@ -61,7 +63,7 @@ class NotificationController extends Controller
     {
         $notifications_ones = Notification::find($id);
        // return view('partials.employee.employee.categories.edit',['category' => $notifications_ones])->with(compact('categories'));
-        return view('partials.admin.notification.edit')->with(compact('notifications_ones'));
+        return view('partials.employer.notification.edit')->with(compact('notifications_ones'));
     }
 
     /**
@@ -76,7 +78,7 @@ class NotificationController extends Controller
         Notification::find($id)->update(['status' => 1]);
         toast('Notification read!','success');
        
-        return redirect()->route('admin.home');
+        return redirect()->route('employer.home');
         
     }
 

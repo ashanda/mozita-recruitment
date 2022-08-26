@@ -337,6 +337,14 @@
       $(document).on('click', '.remove-input-field', function () {
           $(this).parents('div').remove();
       });
+      var i = 0;
+      $("#add-note2").click(function () {
+          ++i;
+          $("#dynamicAddRemove2").append('<div class ="row"><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Notes :</strong><textarea name="addMoreInputFields['+i+'][note]" class="form-control"></textarea></div></div><div class="col-xs-1 col-sm-1 col-md-1"><div class="form-group add_new_item"><button type="button" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div></div>');
+      });
+      $(document).on('click', '.remove-input-field', function () {
+          $(this).parents('div').remove();
+      });
       $(document).ready(function () { 
             $('#category').on('change',function(e){
             console.log(e);

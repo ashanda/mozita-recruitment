@@ -105,15 +105,7 @@
             @enderror
             </div>
             </div>
-            <div class="col-xs-5 col-sm-5 col-md-5">
-              <div class="form-group">
-              <strong>Reminder :</strong>
-              <input type="datetime-local" name="addMoreInputFields[0][reminder]" class="form-control" value="{{ $note->remind_me  }}" readonly>
-              @error('addMoreInputFields[0][reminder]')
-              <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-              @enderror
-              </div>
-              </div>
+            
               
           </div>
           @endforeach

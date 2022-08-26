@@ -17,7 +17,7 @@ class CreateNotesTable extends Migration
             $table->id();
             $table->integer('note_id');
             $table->integer('emp_uid');
-            $table->timestamp('remind_me');
+            $table->timestamp('remind_me')->default(null);
             $table->string('note');
             $table->timestamps();
             

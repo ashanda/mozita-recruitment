@@ -42,7 +42,35 @@
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-          
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="icon-bell mx-0"></i>
+              <span class="count">{{ count(notificatio_read_emp(Auth::user()->id)) }}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              @foreach ( notificatio_read_emp(Auth::user()->id) as $notification)
+                 <a class="dropdown-item preview-item" href="{{ route('user_notification.edit',$notification->id) }}">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="ti-info-alt mx-0"></i>
+                  </div>
+                </div>
+                
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">{{ $notification->reminder }}</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now ({{ $notification->system_id }})
+                  </p>
+                </div>
+               
+              </a>
+              @endforeach
+             
+           
+              
+            </div>
+          </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
               <img src="{{ asset('images/faces/face1.jpg')}}" alt="profile"/>
