@@ -37,19 +37,19 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <strong>Job Category  :</strong>
+        <strong>Job Category :</strong>
     <div class="form-group">
         <input type="text" name="job_name" class="form-control" value="{{ $employee->job_category }}" readonly>
     </div>
     
     <div class="form-group">
-       
+    <strong>Job Role :</strong>
         <input type="text" name="job_name" class="form-control" value="{{ $employee->job_sub_category }}" readonly>
     </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="form-group">
-      <strong>Candidate Name  :</strong>
+      <strong>Candidate Name :</strong>
       <input type="text" name="candidate_name" class="form-control" value="{{ $employee->candidate_name }}" readonly>
       @error('candidate_name')
       <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

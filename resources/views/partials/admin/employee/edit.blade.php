@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="form-group">
-
+                <strong>Job Role :</strong>
                   <select name="subcategory" id="subcategory" class="form-control input-sm">
                     <option value=""></option>
                   </select>
@@ -149,7 +149,7 @@
               </div>
 
 
-              <button type="submit" class="btn btn-primary ml-3">Update</button>
+              <button type="submit" class="btn btn-primary">Update</button>
             </div>
 
 

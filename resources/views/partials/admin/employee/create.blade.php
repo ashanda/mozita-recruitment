@@ -27,7 +27,7 @@
     <div class="col-xs-4 col-sm-4 col-md-4">
   <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="form-group">
-    <strong>Job Name  :</strong>
+    <strong>Job Name :</strong>
     <input type="text" name="job_name" class="form-control" required>
     @error('job_name')
     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <strong>Job Category  :</strong>
+        <strong>Job Category :</strong>
     <div class="form-group">
         <select name="category" id="category" class="form-control input-sm" required>
             @foreach($s as $k)
@@ -47,7 +47,7 @@
     </div>
     
     <div class="form-group">
-       
+    <strong>Job Role :</strong>
         <select name="subcategory" id="subcategory" class="form-control input-sm">
             <option value=""></option>
         </select>
@@ -55,7 +55,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="form-group">
-      <strong>Candidate Name  :</strong>
+      <strong>Candidate Name :</strong>
       <input type="text" name="candidate_name" class="form-control" required>
       @error('candidate_name')
       <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -114,7 +114,7 @@
         </div>
         
         
-        <button type="submit" class="btn btn-primary ml-3">Save</button>
+        <button type="submit" class="btn btn-primary">Save</button>
         </div>
 
 
