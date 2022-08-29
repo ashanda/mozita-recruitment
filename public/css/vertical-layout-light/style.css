@@ -36446,3 +36446,6 @@ div.tagsinput span.tag a {
 #dynamicAddRemove2 textarea.form-control {
     height: 200px;
 }
+.text-end{
+    text-align: end !important;
+}
