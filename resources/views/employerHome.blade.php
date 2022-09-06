@@ -52,7 +52,7 @@
               <div class="card card-tale">
                 <div class="card-body">
                   <p class="mb-4">Total Employers</p>
-                  <p class="fs-30 mb-2">4006</p>
+                  <p class="fs-30 mb-2">{{ employer_count_dash(Auth::user()->id) }}</p>
                   <p>10.00% (30 days)</p>
                 </div>
               </div>

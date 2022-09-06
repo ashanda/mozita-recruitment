@@ -34,9 +34,27 @@ function notify_user(){
 }
 
 // emp count
-function employer(){
-   $employer = Employer::where('status',1)->get();
-   return $employer;
+function employer_count(){
+   $employer_count = Employer::count();
+   return $employer_count;
+}
+
+// empee count
+function employee_count(){
+   $employee_count = Employee::count();
+   return $employee_count;
+}
+
+// emp dash count
+function employer_count_dash($id){
+   $mployer_count_dash = Employer::where('id',$id)->count();
+   return $mployer_count_dash;
+}
+
+// empee dash count
+function employee_count_dash($id){
+   $employee_count_dash = Employee::where('id',$id)->count();
+   return $employee_count_dash;
 }
 
 
