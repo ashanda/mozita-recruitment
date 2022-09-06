@@ -33,7 +33,7 @@ function notify_user(){
    return ;
 }
 
-<<<<<<< HEAD
+
 // emp count
 function employer_count(){
    $employer_count = Employer::count();
@@ -57,13 +57,8 @@ function employee_count_dash($id){
    $employee_count_dash = Employee::where('id',$id)->count();
    return $employee_count_dash;
 }
-=======
-// // emp count
-// function employer(){
-//    $employer = Employer::where('status',1)->get();
-//    return $employer;
-// }
->>>>>>> d9c0c32214e76205ed292cab01506e468ebdaa63
+
+
 
 
 // notification 
