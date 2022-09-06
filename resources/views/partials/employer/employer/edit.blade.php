@@ -7,7 +7,7 @@
                 <div class="card">
                   <div class="card-body">
                     
-                      <div class="row">
+                      <div class="row pl-3">
 <div class="pull-left text-left mb-2 col-md-6">
   <h4 class="card-title">Edit Employer</h4>
 </div>
