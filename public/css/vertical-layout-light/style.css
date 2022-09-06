@@ -36449,3 +36449,7 @@ div.tagsinput span.tag a {
 .text-end{
     text-align: end !important;
 }
+.table .btn-primary,
+.table .btn-danger{
+    padding: 5px 10px;
+}
