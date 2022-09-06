@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Stevebauman\Location\Facades\Location;
 use Illuminate\Support\Facades\Cache;
@@ -31,6 +31,13 @@ function notify_user(){
 
    return ;
 }
+
+// emp count
+function employer(){
+   $employer = Employee::where('status',0)->get();
+   return $employer;
+}
+
 
 // notification 
 

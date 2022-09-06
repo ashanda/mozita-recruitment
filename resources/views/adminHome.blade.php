@@ -55,7 +55,7 @@
             <div class="card-body">
 
               <p class="mb-4">Total Employers</p>
-              <p class="fs-30 mb-2">{{ count(notificatio_read()) }}</p>
+              <p class="fs-30 mb-2">{{ count(employer()) }}</p>
               <p>10.00% (30 days)</p>
             </div>
           </div>
