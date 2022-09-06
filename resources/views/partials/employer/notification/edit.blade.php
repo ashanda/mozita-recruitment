@@ -7,11 +7,11 @@
                 <div class="card">
                   <div class="card-body">
                     
-                      <div class="row">
-<div class="pull-left text-left mb-2 col-md-6">
+                      <div class="row px-3 pb-3">
+<div class="pull-left text-left mb-2 col-6">
   <h4 class="card-title">Read</h4>
 </div>
-<div class="pull-right text-right col-md-6">
+<div class="pull-right text-right col-6">
 <a class="btn btn-primary" href="{{ route('user_notification.index') }}"> Back</a>
 </div>
 </div>
