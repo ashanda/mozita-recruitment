@@ -9,7 +9,7 @@
 
         <div class="row px-3 pb-3">
           <div class="pull-left text-left mb-2 col-6">
-            <h4 class="card-title">Read</h4>
+            <h4 class="card-title">Notifications</h4>
           </div>
           <div class="pull-right text-right col-6">
             <a class="btn btn-primary" href="{{ route('notification.index') }}"> Back</a>
