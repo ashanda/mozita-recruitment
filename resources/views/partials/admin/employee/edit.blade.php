@@ -26,7 +26,7 @@
               <div class="row">
                 <div class="col-xs-10 col-sm-10 col-md-10">
                   <div class="form-group">
-                    <strong>Remarks :</strong>
+                    <strong>Company/Expert Area and Remarks :</strong>
                     <textarea name="addMoreInputFields[0][note]" class="form-control">
             </textarea>
                     @error('addMoreInputFields[0][note]')
