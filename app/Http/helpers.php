@@ -33,11 +33,11 @@ function notify_user(){
    return ;
 }
 
-// emp count
-function employer(){
-   $employer = Employer::where('status',1)->get();
-   return $employer;
-}
+// // emp count
+// function employer(){
+//    $employer = Employer::where('status',1)->get();
+//    return $employer;
+// }
 
 
 // notification 
