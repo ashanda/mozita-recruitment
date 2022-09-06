@@ -53,13 +53,8 @@
         <div class="col-md-6 mb-4 stretch-card transparent">
           <div class="card card-tale">
             <div class="card-body">
-
               <p class="mb-4">Total Employers</p>
-<<<<<<< HEAD
               <p class="fs-30 mb-2">{{ employer_count() }}</p>
-=======
-              <p class="fs-30 mb-2">{{ test}}</p>
->>>>>>> d9c0c32214e76205ed292cab01506e468ebdaa63
               <p>10.00% (30 days)</p>
             </div>
           </div>
