@@ -55,7 +55,7 @@
             <div class="card-body">
 
               @php
-              $employers = $employers->count();
+              $employers = $employer->count();
               @endphp
               <p class="mb-4">Total Employers</p>
               <p class="fs-30 mb-2">{{$employers}}</p>
