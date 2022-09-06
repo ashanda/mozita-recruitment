@@ -54,7 +54,7 @@
               <div class="card card-tale">
                 <div class="card-body">
                   <p class="mb-4">Total Employers</p>
-                  <p class="fs-30 mb-2">4006</p>
+                  <p class="fs-30 mb-2">@php echo count($employers); @endphp</p>
                   <p>10.00% (30 days)</p>
                 </div>
               </div>
@@ -63,7 +63,7 @@
               <div class="card card-dark-blue">
                 <div class="card-body">
                   <p class="mb-4">Total Employees</p>
-                  <p class="fs-30 mb-2">61344</p>
+                  <p class="fs-30 mb-2">sample count</p>
                   <p>22.00% (30 days)</p>
                 </div>
               </div>
