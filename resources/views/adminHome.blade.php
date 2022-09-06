@@ -55,10 +55,10 @@
             <div class="card-body">
 
               @php
-              $employers = $employer->count();
+              $emp = $employers();
               @endphp
               <p class="mb-4">Total Employers</p>
-              <p class="fs-30 mb-2">{{$employers}}</p>
+              <p class="fs-30 mb-2">{{$emp->count}}</p>
               <p>10.00% (30 days)</p>
             </div>
           </div>
