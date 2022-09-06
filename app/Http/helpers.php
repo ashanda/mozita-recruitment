@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Employee;
+use App\Models\Employer;
 use Illuminate\Http\Request;
 use Stevebauman\Location\Facades\Location;
 use Illuminate\Support\Facades\Cache;
@@ -34,7 +35,7 @@ function notify_user(){
 
 // emp count
 function employer(){
-   $employer = Employee::where('status',0)->get();
+   $employer = Employer::where('status',1)->get();
    return $employer;
 }
 
