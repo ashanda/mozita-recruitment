@@ -58,7 +58,7 @@
               $emp = $employers();
               @endphp
               <p class="mb-4">Total Employers</p>
-              <p class="fs-30 mb-2">{{$emp->count}}</p>
+              <p class="fs-30 mb-2">test</p>
               <p>10.00% (30 days)</p>
             </div>
           </div>
