@@ -36,7 +36,7 @@
             </div>
             </div>
             
-              <div class="col-xs-1 col-sm-1 col-md-1">
+              <div class="col-xs-2 col-sm-2 col-md-2 text-end">
                 <div class="form-group add_new_item">
                 
                   <button type="button" name="add" id="add-note2" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i></button>
@@ -138,7 +138,7 @@
                       @enderror
                     </div>
                   </div>
-                  <div class="col-xs-1 col-sm-1 col-md-1">
+                  <div class="col-xs-2 col-sm-2 col-md-2 text-end">
                     <div class="form-group add_new_item">
 
                       <button type="button" name="add" id="add-note" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i></button>

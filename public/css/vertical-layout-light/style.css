@@ -36460,3 +36460,7 @@ div.tagsinput span.tag a {
 .card select.form-control.input-sm{
     height: 32px;
 }
+
+textarea.form-control{
+    height: 140px;
+}
