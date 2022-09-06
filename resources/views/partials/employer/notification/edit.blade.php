@@ -59,7 +59,7 @@
     
       
         
-          <button type="submit" class="btn btn-primary ml-3">Read</button>
+          <button type="submit" class="ml-3 btn btn-primary ml-3">Read</button>
 
 </div>
 
