@@ -56,7 +56,7 @@
 
               
               <p class="mb-4">Total Employers</p>
-              <p class="fs-30 mb-2">{{@php echo count($employers); @endphp}}</p>
+              <p class="fs-30 mb-2">test</p>
               <p>10.00% (30 days)</p>
             </div>
           </div>
