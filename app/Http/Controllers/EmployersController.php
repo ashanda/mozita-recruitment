@@ -88,8 +88,9 @@ class EmployersController extends Controller
        
         
         $employers_add_more = $request->addMoreInputFields;
-        
+      
         //add more save note table;
+        
         foreach ($employers_add_more as $key=> $employers) {
             
             $note = new Notes();
@@ -97,9 +98,15 @@ class EmployersController extends Controller
             $note->emp_uid = Auth::user()->id;
             $note->note = $employers['note'];
             $note->remind_me = $employers['reminder']; 
-           $note->save();
+            if($employers['note'] == null){
+
+            }else{
+             $note->save();
+            }
+            
             
         }
+       
         $employer->save();
 
         Alert::Alert('Success', 'Employer has been Added successfully.');  

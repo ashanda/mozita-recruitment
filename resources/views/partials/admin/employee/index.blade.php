@@ -70,8 +70,14 @@
                                 <td>{{ $employee->attachment }}</td>
                                 @php
                                 $user_notes = getUserNotes($employee->employee_id,$employee->employee_uid);
+                                
                                 @endphp
+                                @if ($user_notes == null)
+                                <td>{{ '-' }}</td> 
+                                @else
                                 <td>{{ $user_notes->created_at }}</td>
+                                @endif
+                                
 
                             </tr>
                             @endforeach
