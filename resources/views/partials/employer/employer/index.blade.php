@@ -71,7 +71,11 @@
                                 @php
                                 $user_notes = getUserNotes($employer->employer_id,$employer->employer_uid);
                                 @endphp
+                                @if ($user_notes == null)
+                                <td>{{ '-' }}</td> 
+                                @else
                                 <td>{{ $user_notes->created_at }}</td>
+                                @endif
 
                             </tr>
                             @endforeach

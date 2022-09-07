@@ -94,6 +94,7 @@ class EmployeesController extends Controller
            $employees_add_more = $request->addMoreInputFields;
         
         //add more save note table;
+        
         foreach ($employees_add_more as $key=> $employees) {
             
             $note = new Notes();
@@ -101,9 +102,16 @@ class EmployeesController extends Controller
             $note->emp_uid = Auth::user()->id;
             $note->note = $employees['note'];
             $note->remind_me = $employees['reminder']; 
-            $note->save();
+            if($employees['note'] == null){
+
+            }else{
+             $note->save();
+            }
+
+           
             
-        }
+         }
+         
            $save->save();
            Alert::success('Success', 'Employee Added Successfully');
            return view('partials.admin.employee.index');
