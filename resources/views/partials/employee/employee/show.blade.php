@@ -43,10 +43,19 @@
     </div>
     
     <div class="form-group">
-    <strong>Job Role :</strong>
+    <strong>Job Sub Category :</strong>
         <input type="text" name="job_name" class="form-control" value="{{ $employee->job_sub_category }}" readonly>
     </div>
     </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+      <strong>Job Role :</strong>
+      <input type="text" name="job_role" class="form-control" value="{{ $employee->job_role }}" readonly>
+      @error('job_role')
+      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+      @enderror
+      </div>
+      </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="form-group">
       <strong>Candidate Name :</strong>

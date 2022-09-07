@@ -26,7 +26,7 @@
                             <span class="text-danger">{{ $errors->first('name') }}</span>
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Job Role:</label>
+                            <label for="pwd">Job Sub/Parent Catogry:</label>
                             <select class="form-control" name="parent_category">
                                 <option value="0">Select a category</option>
                                 @foreach($categories as $category)

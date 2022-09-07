@@ -25,7 +25,7 @@
                                 <tr>
                                 <th>Actions</th>
                                     <th>Job Category</th>
-                                    <th>Job Role</th>
+                                    <th>Sub Category</th>
                                     
                                 </tr>
                             </thead>
@@ -40,14 +40,17 @@
                                             <button class="btn btn-xs btn-danger">Delete</button>
                                         </form>
                                     </td>
-                                    <td>{{ $category->name}}</td>
-                                    <td>
+                                    
                                         @if ($category->parent)
-                                        {{ $category->parent->name}}
+                                        <td>{{ $category->parent->name}}</td>
+                                        <td>{{ $category->name}}</td>
                                         @elseif ($category->parent == null)
-                                        No Parent
+                                        <td>{{ $category->name}}</td>
+                                        <td>{{ 'No Parent'}}</td>
+                                        
+                                        
                                         @endif
-                                    </td>
+                                    
 
                                 </tr>
                                 @endforeach

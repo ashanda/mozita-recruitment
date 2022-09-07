@@ -21,7 +21,7 @@
                                 <tr>
                                     <th>Actions</th>
                                     <th>Job Category</th>
-                                    <th>Job Role</th>
+                                    <th>Job Sub/Parent Category</th>
 
                                 </tr>
                             </thead>

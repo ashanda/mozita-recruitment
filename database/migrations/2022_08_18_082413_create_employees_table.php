@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('employee_uid');
             $table->string('job_category');
             $table->string('job_sub_category');
+            $table->string('job_role');
             $table->string('job_title');
             $table->string('candidate_name');
             $table->string('candidate_email');

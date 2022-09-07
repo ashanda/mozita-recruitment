@@ -24,8 +24,8 @@
                             <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
                             <span class="text-danger">{{ $errors->first('name') }}</span>
                         </div>
-                        <div class="form-group">
-                            <label for="parent_category">Job Role:</label>
+                        <div class="form-group" style="display: none">
+                            <label for="parent_category">Job Sub/Parent Catogry:</label>
                             <select class="form-control" name="parent_category">
                                 <option value="">Select a category</option>
                                 @foreach($categories as $category)

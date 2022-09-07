@@ -39,6 +39,16 @@ class UserCategoryController extends Controller
             return view('partials.employee.employee.categories.create')->with(compact(['categories']));
         }
     }
+    public function sub_create()
+    {   
+        $role = Auth::user()->type;
+       
+
+        if($role == 'employee'){
+            $categories = Category::where('parent_id', 0)->get();
+            return view('partials.employee.employee.categories.sub_create')->with(compact(['categories']));
+        }
+    }
 
     /**
      * Store a newly created resource in storage.

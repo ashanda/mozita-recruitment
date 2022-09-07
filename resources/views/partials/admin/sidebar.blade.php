@@ -31,7 +31,9 @@
             <div class="collapse" id="employee" style="">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link " href="{{ route('employee.index') }}">All Employees</a></li>
-                <li class="nav-item"> <a class="nav-link " href="{{ route('categories.index') }}">Job Category</a></li>
+                <li class="nav-item"> <a class="nav-link " href="{{ route('categories.index') }}">All Job Category</a></li>
+                <li class="nav-item"> <a class="nav-link " href="{{ route('categories.create') }}">Add Job Category</a></li>
+                <li class="nav-item"> <a class="nav-link " href="/admin/sub_create">Add Sub Job Category</a></li>
               </ul>
             </div>
           </li>

@@ -34,9 +34,10 @@
                             <tr>
                                 <th class="text-center">Action</th>
                                 <th class="text-center">Employee ID</th>
+                                <th class="text-center">Job Title</th>
                                 <th class="text-center">Job Category</th>
                                 <th class="text-center">Job Sub Category</th>
-                                <th class="text-center">Job </th>
+                                <th class="text-center">Job Role</th>
                                 <th class="text-center">Candidate Name</th>
                                 <th class="text-center">Candidate Email</th>
                                 <th class="text-center">CV</th>
@@ -62,9 +63,10 @@
                                 @php
                                 $job_parant_cat = getParentcats($employee->job_category);
                                 @endphp
+                                <td>{{ $employee->job_title }}</td>
                                 <td>{{ $job_parant_cat->name }}</td>
                                 <td>{{ $employee->job_sub_category }}</td>
-                                <td>{{ $employee->job_title }}</td>
+                                <td>{{ $employee->job_role }}</td>
                                 <td>{{ $employee->candidate_name }}</td>
                                 <td>{{ $employee->candidate_email }}</td>
                                 <td>{{ $employee->cv }}</td>

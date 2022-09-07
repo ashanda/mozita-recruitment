@@ -65,6 +65,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('/admin/employer', EmployersController::class);
     Route::resource('/admin/employee', EmployeesController::class);
     Route::resource('/admin/categories', CategoryController::class);
+    Route::get('/admin/sub_create', [CategoryController::class,'sub_create']);
     Route::resource('/admin/settings', SettingsController::class);
     Route::resource('/admin/notification', NotificationController::class);
     Route::get('status', [UserController::class, 'userOnlineStatus']);
@@ -95,6 +96,7 @@ Route::middleware(['auth', 'user-access:employee'])->group(function () {
     Route::get('/employee/home', [HomeController::class, 'employeeHome'])->name('employee.home');
     Route::resource('/employee/user_employee',  UserEmployeesController::class);
     Route::resource('/employee/user_categories', UserCategoryController::class);
+    Route::get('/employee/sub_create', [UserCategoryController::class,'sub_create']);
     //------------------------------------------
 
 });

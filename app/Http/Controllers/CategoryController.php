@@ -44,6 +44,19 @@ class CategoryController extends Controller
         }
     }
 
+    public function sub_create()
+    {   
+        $role = Auth::user()->type;
+        if($role == 'admin'){
+        $categories = Category::all();
+        return view('partials.admin.employee.categories.sub_create')->with(compact(['categories']));
+        }
+
+        if($role == 'employee'){
+            $categories = Category::all();
+            return view('partials.employee.employee.categories.sub_create')->with(compact(['categories']));
+        }
+    }
     /**
      * Store a newly created resource in storage.
      *

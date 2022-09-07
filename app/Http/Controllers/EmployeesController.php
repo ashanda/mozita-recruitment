@@ -72,6 +72,7 @@ class EmployeesController extends Controller
            $save->job_title = $request->job_name;
            $save->job_category = $request->category;
            $save->job_sub_category = $request->subcategory;
+           $save->job_role = $request->job_role;
            $save->candidate_name = $request->candidate_name;
            $save->candidate_email = $request->candidate_email;
 
@@ -101,8 +102,8 @@ class EmployeesController extends Controller
             $note->note_id = $employee_id;
             $note->emp_uid = Auth::user()->id;
             $note->note = $employees['note'];
-            $note->remind_me = $employees['reminder']; 
-            if($employees['note'] == null){
+           // $note->remind_me = $employees['reminder']; 
+            if($employees['note'] == null ){
 
             }else{
              $note->save();
