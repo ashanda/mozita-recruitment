@@ -36446,6 +36446,21 @@ div.tagsinput span.tag a {
 #dynamicAddRemove2 textarea.form-control {
     height: 200px;
 }
-.text-end{
+
+.text-end {
     text-align: end !important;
+}
+
+.table .btn-primary,
+.table .btn-danger {
+    padding: 5px 10px;
+}
+
+.card input.form-control.input-sm,
+.card select.form-control.input-sm{
+    height: 32px;
+}
+
+textarea.form-control{
+    height: 140px;
 }

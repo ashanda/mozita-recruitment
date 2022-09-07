@@ -39,7 +39,7 @@
           
           
           
-          <li class="nav-item">
+          <li class="nav-item" style="display:none ;">
             <a class="nav-link" href="{{ route('settings.index') }}">
               <i class="bi bi-gear menu-icon"></i>
               <span class="menu-title">Settings</span>

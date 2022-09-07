@@ -6,7 +6,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <div class="row">
+                    <div class="row pl-3">
                       <div class="pull-left text-left mb-2 col-md-6">
                         <h4 class="card-title">All Notification</h4>
                       </div>

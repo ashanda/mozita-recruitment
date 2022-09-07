@@ -7,7 +7,7 @@
                 <div class="card">
                   <div class="card-body">
                     
-                      <div class="row">
+                      <div class="row pl-3">
 <div class="pull-left text-left mb-2 col-md-6">
   <h4 class="card-title">Edit Employer</h4>
 </div>
@@ -113,7 +113,7 @@
       @enderror
       </div>
       </div>
-      <div class="col-xs-1 col-sm-1 col-md-1">
+      <div class="col-xs-2 col-sm-2 col-md-2 text-end">
         <div class="form-group add_new_item">
         
           <button type="button" name="add" id="add-note" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i></button>
