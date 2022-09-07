@@ -36,14 +36,16 @@
                                             <button class="btn btn-xs btn-danger">Delete</button>
                                         </form>
                                     </td>
-                                    <td>{{ $category->name}}</td>
-                                    <td>
-                                        @if ($category->parent)
-                                        {{ $category->parent->name}}
+                                    
+                                    @if ($category->parent)
+                                        <td>{{ $category->parent->name}}</td>
+                                        <td>{{ $category->name}}</td>
                                         @elseif ($category->parent == null)
-                                        No Parent
-                                        @endif
-                                    </td>
+                                        <td>{{ $category->name}}</td>
+                                        <td>{{ 'No Parent'}}</td>
+                                        
+                                        
+                                    @endif
 
                                 </tr>
                                 @endforeach

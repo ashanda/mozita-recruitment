@@ -1,4 +1,4 @@
-@extends('layouts.app_admin')
+@extends('layouts.app_employer')
 
 @section('content')
 
@@ -11,7 +11,7 @@
                         <h4 class="card-title">All Employers</h4>
                     </div>
                     <div class="pull-right text-right col-md-6">
-                        <a class="btn btn-primary" href="{{ route('employer.create') }}">Add Employer</a>
+                        <a class="btn btn-primary" href="{{ route('user_employer.create') }}">Add Employer</a>
                     </div>
                 </div>
 
@@ -49,12 +49,12 @@
                         </thead>
                         <tbody>
 
-                            @foreach ($data as $employer)
+                            @foreach ($user_data as $employer)
                             <tr>
                                 <td>
-                                    <form action="{{ route('employer.destroy',$employer->id) }}" method="Post">
-                                        <a class="btn btn-warning" href="{{ route('employer.show',$employer->id) }}">View</a>
-                                        <a class="btn btn-primary" href="{{ route('employer.edit',$employer->id) }}">Edit</a>
+                                    <form action="{{ route('user_employer.destroy',$employer->id) }}" method="Post">
+                                        <a class="btn btn-warning" href="{{ route('user_employer.show',$employer->id) }}">View</a>
+                                        <a class="btn btn-primary" href="{{ route('user_employer.edit',$employer->id) }}">Edit</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

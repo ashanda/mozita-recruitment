@@ -37,9 +37,9 @@
               </div>
               <div class="ml-2">
                 @php
-                $data = userDetails();
+                  $data = userDetails();
                 @endphp
-
+              
                 <h4 class="location font-weight-normal">{{ $data->cityName }}</h4>
                 <h6 class="font-weight-normal">{{ $data->countryName }}</h6>
               </div>
@@ -77,9 +77,10 @@
   $Roles = ['2', '3'];
   $users = DB::table('users')->whereIn('type',$Roles)->get();
   @endphp
-
-  <table class="table">
-    <thead>
+<div class="table-responsive">
+<table class="table"  style="width:100%">
+  <thead>
+   
       <tr>
         <th>Role</th>
         <th>Email</th>
@@ -108,7 +109,7 @@
   </table>
 
 
-
+</div>
 </div>
 <!-- content-wrapper ends -->
 
