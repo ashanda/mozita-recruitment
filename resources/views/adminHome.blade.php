@@ -78,34 +78,36 @@
   $users = DB::table('users')->whereIn('type',$Roles)->get();
   @endphp
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Role</th>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Last Seen</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach($users as $user)
-      <tr>
-        <td>{{$user->name}}</td>
-        <td>{{$user->email}}</td>
-        <td>
-          @if(Cache::has('user-is-online-' . $user->id))
-          <label class="badge badge-success">Online</label>
+  <div style="overflow-x:auto;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Last Seen</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($users as $user)
+        <tr>
+          <td>{{$user->name}}</td>
+          <td>{{$user->email}}</td>
+          <td>
+            @if(Cache::has('user-is-online-' . $user->id))
+            <label class="badge badge-success">Online</label>
 
-          @else
-          <label class="badge badge-danger">Offline</label>
+            @else
+            <label class="badge badge-danger">Offline</label>
 
-          @endif
-        </td>
-        <td>{{ \Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}</td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
+            @endif
+          </td>
+          <td>{{ \Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
 
 
 
