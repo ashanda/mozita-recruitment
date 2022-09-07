@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="pwd">Job Role:</label>
                             <select class="form-control" name="parent_category">
-                                <option>Select a category</option>
+                                <option value="0">Select a category</option>
                                 @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach

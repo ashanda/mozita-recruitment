@@ -94,6 +94,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->name = $request->name;
+        
         $category->parent_id = $request->parent_category ? $request->parent_category : 0;
 
         if ($category->save() ) {
