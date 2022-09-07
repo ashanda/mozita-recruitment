@@ -97,7 +97,11 @@ class UserEmployeesController extends Controller
         }
            $save->save();
            Alert::success('Success', 'Employee Added Successfully');
-           return view('partials.employee.employee.index');
+           $user_data = DB::table('users')
+            ->join('employees', 'employees.employee_uid', '=', 'users.id')
+            ->where('users.id', Auth::user()->id)
+            ->get();
+           return view('partials.employee.employee.index',compact('user_data'));
     }
 
     /**
