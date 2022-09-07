@@ -33333,7 +33333,8 @@ div.tagsinput span.tag a {
 
 .navbar .navbar-brand-wrapper .navbar-brand img {
     max-width: 100%;
-    height: 34px;
+    /* height: 34px; */
+    height: auto;
     margin: auto;
     vertical-align: middle;
 }
@@ -36452,7 +36453,8 @@ div.tagsinput span.tag a {
 }
 
 .table .btn-primary,
-.table .btn-danger {
+.table .btn-danger,
+.table .btn-info {
     padding: 5px 10px;
 }
 
