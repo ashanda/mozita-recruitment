@@ -40,10 +40,10 @@
                                 <th class="text-center">Branch</th>
                                 <th class="text-center">Company Phone</th>
                                 <th class="text-center">Company Website</th>
-                                <th class="text-center">Contact</th> 
+                                <th class="text-center">Contact</th>
                                 <th class="text-center">First Meet up</th>
                                 <th class="text-center">See notes history</th>
-                                
+
 
 
                             </tr>
@@ -72,21 +72,23 @@
                                 $user_contact = getUserContact($employer->employer_id,$employer->employer_uid);
                                 @endphp
                                 @if ($user_contact == null)
-                                <td>{{ '-' }}</td> 
+                                <td>{{ '-' }}</td>
                                 @else
-                                <td>{{ $user_contact->phone_number }}</td>
+                                <td id="hover_model">{{ $user_contact->phone_number }}</td>
                                 @endif
-
+                                <div class="hover_model">
+                                    sample model
+                                </div>
                                 <td>{{ $employer->date_first_contact_made }}</td>
                                 @php
                                 $user_notes = getUserNotes($employer->employer_id,$employer->employer_uid);
                                 @endphp
                                 @if ($user_notes == null)
-                                <td>{{ '-' }}</td> 
+                                <td>{{ '-' }}</td>
                                 @else
                                 <td>{{ $user_notes->created_at }}</td>
                                 @endif
-                               
+
 
                             </tr>
                             @endforeach
