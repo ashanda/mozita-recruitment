@@ -74,7 +74,7 @@
                                 @if ($user_contact == null)
                                 <td>{{ '-' }}</td>
                                 @else
-                                <td id="hoverModel">{{ $user_contact->phone_number }}</td>
+                                <td id="hoverModelEmp">{{ $user_contact->phone_number }}</td>
                                 @endif
                                 <div class="hover_model">
                                     sample model
