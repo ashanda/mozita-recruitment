@@ -76,7 +76,20 @@
                                 @else
                                 <td class="hoverModel">{{ $user_contact->phone_number }}
                                     <div class="hover_model">
-                                        sample model
+                                        <table class="table">
+                                            <tr>
+                                               <th>Head 1</th>
+                                               <th>Head 2</th>
+                                               <th>Head 3</th>
+                                               <th>Head 4</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Data 1</td>
+                                                <td>Data 2</td>
+                                                <td>Data 3</td>
+                                                <td>Data 4</td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </td>
                                 @endif
