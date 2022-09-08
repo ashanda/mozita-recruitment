@@ -36483,8 +36483,11 @@ textarea.form-control {
     overflow: auto;
     width: 100%;
     top: 10px;
+    transition: all;
 }
-
+.hoverModel{
+    cursor: pointer;
+}
 .hoverModel:hover .hover_model {
     display: block;
 }
