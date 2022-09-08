@@ -95,7 +95,16 @@ function userDetails()
             ->orderBy('created_at','desc')
             ->first();
      return $data;       
- }   
+ }  
+ 
+ function getUserContact($note_id,$emp_uid){
+   $data = DB::table('contacts')
+           ->where('unq_id', '=', $note_id)
+           ->where('emp_uid', '=', $emp_uid)
+           ->orderBy('created_at','desc')
+           ->first();
+    return $data;       
+} 
 
  function getParentcats($parent_catID){
     $data = DB::table('categories')

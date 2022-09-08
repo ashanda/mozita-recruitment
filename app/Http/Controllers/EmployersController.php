@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Employer;
 use App\Models\Notes;
 use Illuminate\Support\Facades\DB;
@@ -79,16 +80,33 @@ class EmployersController extends Controller
         $employer->employer_id = $employer_id;
         $employer->employer_uid = Auth::user()->id;
         $employer->company_name = $request->company_name;
-        $employer->company_email = $request->email;
+        $employer->trading = $request->trading;
+        $employer->nzbn = $request->nzbn;
         $employer->company_branch = $request->branch;
-        $employer->company_address = $request->address;
-        $employer->contact_person = $request->contact_person;
-        $employer->position = $request->position;
+        $employer->company_phone = $request->company_phone;
+        $employer->website = $request->website;
+        
         $employer->date_first_contact_made = $request->dfcm;
        
         
         $employers_add_more = $request->addMoreInputFields;
-      
+        $employers_add_more_contact = $request->addMoreInputFieldsContact;
+
+        foreach($employers_add_more_contact as $key=> $employers){
+            $contact = new Contact();
+            $contact->unq_id = $employer_id;
+            $contact->emp_uid = Auth::user()->id;
+            $contact->contact_person = $employers['contact_person'];
+            $contact->designation = $employers['designation'];
+            $contact->phone_number = $employers['phone'];
+            $contact->email = $employers['email'];
+            
+            if($employers['contact_person'] == null){
+
+            }else{
+             $contact->save();
+            }
+        }
         //add more save note table;
         
         foreach ($employers_add_more as $key=> $employers) {
@@ -98,7 +116,7 @@ class EmployersController extends Controller
             $note->emp_uid = Auth::user()->id;
             $note->note = $employers['note'];
             $note->remind_me = $employers['reminder']; 
-            if($employers['note'] == null){
+            if($employers['note'] == null && $employers['reminder']){
 
             }else{
              $note->save();

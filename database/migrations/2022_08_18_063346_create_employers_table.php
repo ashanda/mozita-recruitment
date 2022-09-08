@@ -14,15 +14,15 @@ class CreateEmployersTable extends Migration
     public function up()
     {
         Schema::create('employers', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('employer_id');
             $table->integer('employer_uid');
             $table->string('company_name');
-            $table->string('company_email');
+            $table->string('trading');
+            $table->string('nzbn');
             $table->string('company_branch');
-            $table->string('company_address');
-            $table->string('contact_person');
-            $table->string('position');
+            $table->string('company_phone');
+            $table->string('website');         
             $table->string('date_first_contact_made');
             $table->timestamps();
         });

@@ -33,14 +33,14 @@
                   <div>
                     <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
                   </div>
-                  <div class="ml-2">
+                  <?php /*<div class="ml-2">
                     @php
                       $data = userDetails();
                     @endphp
                    
                     <h4 class="location font-weight-normal">{{ $data->cityName }}</h4>
                     <h6 class="font-weight-normal">{{ $data->countryName }}</h6>
-                  </div>
+                  </div>*/?>
                 </div>
               </div>
             </div>

@@ -101,8 +101,8 @@
                         <div class="col-xs-4 col-sm-4 col-md-4">
                             <div class="form-group">
                                 <strong>Contact person :</strong>
-                                <input type="text" name="addMoreInputFields[0][contact_person]" class="form-control">
-                                @error('addMoreInputFields[0][contact_person]')
+                                <input type="text" name="addMoreInputFieldsContact[0][contact_person]" class="form-control">
+                                @error('addMoreInputFieldsContact[0][contact_person]')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -110,7 +110,7 @@
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <strong>Designation :</strong>
-                                <input type="text" name="addMoreInputFields[0][position]" class="form-control">
+                                <input type="text" name="addMoreInputFieldsContact[0][designation]" class="form-control">
                                 @error('position')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
@@ -131,8 +131,8 @@
                         <div class="col-xs-6 col-sm-6 col-md-6">
                           <div class="form-group">
                               <strong>Phone Number :</strong>
-                              <input type="text" name="addMoreInputFields[0][phone]" class="form-control">
-                              @error('addMoreInputFields[0][phone]')
+                              <input type="text" name="addMoreInputFieldsContact[0][phone]" class="form-control">
+                              @error('addMoreInputFieldsContact[0][phone]')
                               <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                               @enderror
                           </div>
@@ -140,8 +140,8 @@
                       <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <strong>Email address :</strong>
-                                <input type="email" name="addMoreInputFields[0][email]" class="form-control">
-                                @error('addMoreInputFields[0][email]')
+                                <input type="email" name="addMoreInputFieldsContact[0][email]" class="form-control">
+                                @error('addMoreInputFieldsContact[0][email]')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
                             </div>
