@@ -36476,3 +36476,18 @@ textarea.form-control {
     }
 }
 
+.hover_model {
+    display: none;
+    position: relative;
+    z-index: 9999;
+    right: 140px;
+    overflow: auto;
+    width: 100%;
+    background: #c6c6c6;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.hoverModelAdmin:hover .hover_model {
+    display: block;
+}
