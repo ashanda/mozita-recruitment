@@ -75,10 +75,11 @@
                                 <td>{{ '-' }}</td>
                                 @else
                                 <td id="hoverModelEmp">{{ $user_contact->phone_number }}
+                                    <div class="hover_model">
+                                        sample model
+                                    </div>
                                 </td>
-                                <div class="hover_model">
-                                    sample model
-                                </div>
+
                                 @endif
 
                                 <td>{{ $employer->date_first_contact_made }}</td>
