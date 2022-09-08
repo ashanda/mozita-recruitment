@@ -74,11 +74,13 @@
                                 @if ($user_contact == null)
                                 <td>{{ '-' }}</td>
                                 @else
-                                <td id="hoverModelEmp">{{ $user_contact->phone_number }}</td>
+                                <td id="hoverModelEmp">{{ $user_contact->phone_number }}
+                                    <div class="hover_model">
+                                        sample model
+                                    </div>
+                                </td>
                                 @endif
-                                <div class="hover_model">
-                                    sample model
-                                </div>
+
                                 <td>{{ $employer->date_first_contact_made }}</td>
                                 @php
                                 $user_notes = getUserNotes($employer->employer_id,$employer->employer_uid);

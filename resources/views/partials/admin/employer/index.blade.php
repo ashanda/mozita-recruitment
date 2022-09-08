@@ -74,10 +74,11 @@
                                 @if ($user_contact == null)
                                 <td>{{ '-' }}</td>
                                 @else
-                                <td id="hoverModelAdmin">{{ $user_contact->phone_number }}</td>
-                                <div class="hover_model">
-                                    sample model
-                                </div>
+                                <td id="hoverModelAdmin">{{ $user_contact->phone_number }}
+                                    <div class="hover_model">
+                                        sample model
+                                    </div>
+                                </td>
                                 @endif
                                 <td>{{ $employer->date_first_contact_made }}</td>
                                 @php
