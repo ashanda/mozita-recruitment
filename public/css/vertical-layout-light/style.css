@@ -36475,3 +36475,19 @@ textarea.form-control {
         height: auto;
     }
 }
+
+.hover_model {
+    display: none;
+    position: relative;
+    z-index: 9999;
+    overflow: auto;
+    width: 100%;
+    top: 10px;
+    transition: all;
+}
+.hoverModel{
+    cursor: pointer;
+}
+.hoverModel:hover .hover_model {
+    display: block;
+}

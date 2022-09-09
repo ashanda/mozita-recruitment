@@ -41,10 +41,10 @@
                                 <th class="text-center">Branch</th>
                                 <th class="text-center">Company Phone</th>
                                 <th class="text-center">Company Website</th>
-                                <th class="text-center">Contact</th> 
+                                <th class="text-center">Contact</th>
                                 <th class="text-center">First Meet up</th>
                                 <th class="text-center">See notes history</th>
-                                
+
 
 
                             </tr>
@@ -74,9 +74,27 @@
                                 $user_contact = getUserContact($employer->employer_id,$employer->employer_uid);
                                 @endphp
                                 @if ($user_contact == null)
-                                <td>{{ '-' }}</td> 
+                                <td>{{ '-' }}</td>
                                 @else
-                                <td>{{ $user_contact->phone_number }}</td>
+                                <td class="hoverModel">{{ $user_contact->phone_number }}
+                                    <div class="hover_model">
+                                    <table class="table">
+                                            <tr>
+                                               <th>Head 1</th>
+                                               <th>Head 2</th>
+                                               <th>Head 3</th>
+                                               <th>Head 4</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Data 1</td>
+                                                <td>Data 2</td>
+                                                <td>Data 3</td>
+                                                <td>Data 4</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+
                                 @endif
 
                                 <td>{{ $employer->date_first_contact_made }}</td>
@@ -84,11 +102,11 @@
                                 $user_notes = getUserNotes($employer->employer_id,$employer->employer_uid);
                                 @endphp
                                 @if ($user_notes == null)
-                                <td>{{ '-' }}</td> 
+                                <td>{{ '-' }}</td>
                                 @else
                                 <td>{{ $user_notes->created_at }}</td>
                                 @endif
-                               
+
 
                             </tr>
                             @endforeach
