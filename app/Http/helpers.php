@@ -48,13 +48,13 @@ function employee_count(){
 
 // emp dash count
 function employer_count_dash($id){
-   $mployer_count_dash = Employer::where('id',$id)->count();
+   $mployer_count_dash = Employer::where('employer_uid',$id)->count();
    return $mployer_count_dash;
 }
 
 // empee dash count
 function employee_count_dash($id){
-   $employee_count_dash = Employee::where('id',$id)->count();
+   $employee_count_dash = Employee::where('employee_uid',$id)->count();
    return $employee_count_dash;
 }
 
