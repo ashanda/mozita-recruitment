@@ -20,7 +20,7 @@
         <div class="alert alert-success mb-1 mt-1">
           {{ session('status') }}
         </div>
-        <<<<<<< HEAD </div>
+        </div>
           <div class="col-xs-8 col-sm-8 col-md-8">
             <div id="dynamicAddRemove2">
               <div class="row">
@@ -39,7 +39,7 @@
                   <div class="form-group add_new_item">
 
                     <button type="button" name="add" id="add-note2" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i></button>
-                    =======
+                    
                     @endif
                     <form action="{{ route('employee.update',$id) }}" method="POST" enctype="multipart/form-data">
                       @csrf
@@ -152,7 +152,7 @@
                                   <button type="button" name="add" id="add-note" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i></button>
                                 </div>
                               </div>
-                              >>>>>>> 6c0f374ff2ad8b6314b5e4b1ae25ae5e5651f9e4
+                              
                             </div>
                           </div>
 
