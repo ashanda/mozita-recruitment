@@ -51,7 +51,7 @@
                 <div class="card-body">
                   <p class="mb-4">Total Employees</p>
                   <p class="fs-30 mb-2">{{ employee_count_dash(Auth::user()->id) }}</p>
-                  <p>10.00% (30 days)</p>
+                  
                 </div>
               </div>
             </div>
