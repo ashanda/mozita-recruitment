@@ -54,13 +54,10 @@
                             @foreach ($user_data as $employer)
                             <tr>
                                 <td>
-                                    <form action="{{ route('user_employer.destroy',$employer->id) }}" method="Post">
+                                  
                                         <a class="btn btn-warning" href="{{ route('user_employer.show',$employer->id) }}">View</a>
                                         <a class="btn btn-primary" href="{{ route('user_employer.edit',$employer->id) }}">Edit</a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
+                                       
                                 </td>
                                 <td>{{ $employer->employer_id }}</td>
                                 <td>{{ $employer->name }}</td>
