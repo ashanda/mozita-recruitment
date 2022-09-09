@@ -17,6 +17,19 @@ class EmployersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function register_company(){
+        $role = Auth::user()->type;
+        
+        if($role == 'admin'){
+            $company_data = DB::table('users')
+            ->join('employers', 'employers.employer_uid', '=', 'users.id')
+            ->get();
+            
+            return view('partials.admin.employer.register_campnay',compact('company_data'));
+        }
+    }
+
     public function index()
     {
         
@@ -82,7 +95,9 @@ class EmployersController extends Controller
         $employer->company_name = $request->company_name;
         $employer->trading = $request->trading;
         $employer->nzbn = $request->nzbn;
+        $employer->business_industry = $request->business_industry;
         $employer->company_branch = $request->branch;
+        $employer->branch_address = $request->branch_address;
         $employer->company_phone = $request->company_phone;
         $employer->website = $request->website;
         
@@ -145,8 +160,12 @@ class EmployersController extends Controller
         ->where('note_id', '=', $employer->employer_id)
         ->orderBy('remind_me','ASC')
         ->get();
+        $contacts = DB::table('contacts')
+        ->where('unq_id', '=', $employer->employer_id)
+        ->orderBy('created_at','ASC')
+        ->get();
         if($role == 'admin'){
-            return view('partials.admin.employer.show',compact('employer','id','notes'));
+            return view('partials.admin.employer.show',compact('employer','id','notes','contacts'));
         }else if($role == 'employer'){
             return view('partials.employer.employer.show');
         }else{
@@ -182,7 +201,59 @@ class EmployersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $User_Update = Employer::where("id", $id)->update(["company_name" => $request->company_name,"trading" => $request->trading , "nzbn" => $request->nzbn, "business_industry" => $request->business_industry,'company_branch'=> $request->branch, 'branch_address'=> $request->branch_address,'company_phone'=> $request->company_phone,'website'=> $request->website, 'date_first_contact_made'=> $request->dfcm]);
+        
+        $employers_add_more_contact = $request->addMoreInputFieldsContact;
+        $unq_id = $request->employer_id;
+        foreach($employers_add_more_contact as $key=> $employers){
+            
+            if($employers['row_id'] == null){
+            $contact = new Contact();
+            $contact->unq_id = $unq_id;
+            $contact->emp_uid = Auth::user()->id;
+            $contact->contact_person = $employers['contact_person'];
+            $contact->designation = $employers['designation'];
+            $contact->phone_number = $employers['phone'];
+            $contact->email = $employers['email'];
+            
+            if($employers['contact_person'] == null && $employers['designation'] == null && $employers['phone'] == null && $employers['email'] == null){
+
+            }else{
+             $contact->save();
+            }
+            }else{
+                $matchThese = ['id'=>$employers['row_id']];
+                Contact::updateOrCreate($matchThese,['contact_person'=>$employers['contact_person'],'designation'=> $employers['designation'],'phone_number'=>$employers['phone'],'email'=>$employers['email']]);
+            }
+        }
+
+        $employers_add_more = $request->addMoreInputFields;
+        foreach ($employers_add_more as $key=> $employers) {
+            if($employers['note_row_id'] == null){
+            $note = new Notes();
+            $note->note_id = $unq_id;
+            $note->emp_uid = Auth::user()->id;
+            $note->note = $employers['note'];
+            $note->remind_me = $employers['reminder']; 
+            if($employers['note'] == null && $employers['reminder']){
+
+            }else{
+             $note->save();
+            }
+        }else{
+            $matchThese = ['id'=>$employers['note_row_id']];
+            Notes::updateOrCreate($matchThese,['note'=>$employers['note'],'remind_me'=> $employers['reminder']]);
+        }
+            
+            
+            
+        }
+       
+        Alert::success('Success', 'Employer Update successfully');
+        return redirect()->back();
+
+        
     }
 
     /**

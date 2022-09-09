@@ -20,7 +20,9 @@ class CreateEmployersTable extends Migration
             $table->string('company_name');
             $table->string('trading');
             $table->string('nzbn');
+            $table->string('business_industry');
             $table->string('company_branch');
+            $table->string('branch_address');
             $table->string('company_phone');
             $table->string('website');         
             $table->string('date_first_contact_made');

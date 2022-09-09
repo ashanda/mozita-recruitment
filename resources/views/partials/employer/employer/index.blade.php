@@ -33,7 +33,8 @@
 
                             <tr>
                                 <th class="text-center">Action</th>
-                                <th class="text-center">Employer ID</th>
+                                <th class="text-center">Staff ID</th>
+                                <th class="text-center">Staff Name</th>
                                 <th class="text-center">Company Name</th>
                                 <th class="text-center">Trading As</th>
                                 <th class="text-center">NZBN</th>
@@ -62,6 +63,7 @@
                                     </form>
                                 </td>
                                 <td>{{ $employer->employer_id }}</td>
+                                <td>{{ $employer->name }}</td>
                                 <td>{{ $employer->company_name }}</td>
                                 <td>{{ $employer->trading }}</td>
                                 <td>{{ $employer->nzbn }}</td>

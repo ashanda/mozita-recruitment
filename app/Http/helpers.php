@@ -105,6 +105,23 @@ function userDetails()
            ->first();
     return $data;       
 } 
+function getUserNotesAll($note_id,$emp_uid){
+   $data = DB::table('notes')
+           ->where('note_id', '=', $note_id)
+           ->where('emp_uid', '=', $emp_uid)
+           ->orderBy('created_at','asc')
+           ->get();
+    return $data;       
+} 
+
+function getUserContactAll($note_id,$emp_uid){
+   $data = DB::table('contacts')
+           ->where('unq_id', '=', $note_id)
+           ->where('emp_uid', '=', $emp_uid)
+           ->orderBy('created_at','asc')
+           ->get();
+    return $data;       
+} 
 
  function getParentcats($parent_catID){
     $data = DB::table('categories')

@@ -52,7 +52,15 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="form-group">
+                                  <strong>Business Industry :</strong>
+                                  <input type="text" name="business_industry" class="form-control">
+                                  @error('business_industry')
+                                  <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                  @enderror
+                              </div>
+                           </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Branch :</strong>
@@ -62,6 +70,15 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="form-group">
+                                  <strong>Branch Address:</strong>
+                                  <input type="text" name="branch_address" class="form-control">
+                                  @error('branch_address')
+                                  <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                  @enderror
+                              </div>
+                          </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Company Phone Number :</strong>

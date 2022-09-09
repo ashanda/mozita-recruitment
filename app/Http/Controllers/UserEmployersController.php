@@ -60,7 +60,9 @@ class UserEmployersController extends Controller
         $employer->company_name = $request->company_name;
         $employer->trading = $request->trading;
         $employer->nzbn = $request->nzbn;
+        $employer->business_industry = $request->business_industry;
         $employer->company_branch = $request->branch;
+        $employer->branch_address = $request->branch_address;
         $employer->company_phone = $request->company_phone;
         $employer->website = $request->website;
         

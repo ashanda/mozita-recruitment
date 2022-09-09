@@ -12,7 +12,9 @@ use App\Http\Controllers\UserEmployersController;
 use App\Http\Controllers\UserEmployeesController;
 use App\Http\Controllers\UserCategoryController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\RegisterCompany;
 use App\Http\Controllers\UserNotificationController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -63,11 +65,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::resource('/admin/user', UserController::class);
     Route::resource('/admin/employer', EmployersController::class);
+    Route::resource('/admin/register_company', RegisterCompany::class);
     Route::resource('/admin/employee', EmployeesController::class);
     Route::resource('/admin/categories', CategoryController::class);
     Route::get('/admin/sub_create', [CategoryController::class,'sub_create']);
     Route::resource('/admin/settings', SettingsController::class);
     Route::resource('/admin/notification', NotificationController::class);
+    Route::get('/admin/contact/{id}',[ContactController::class,'destroy'])->name('contact.destroy');
+    
     Route::get('status', [UserController::class, 'userOnlineStatus']);
 });
   
