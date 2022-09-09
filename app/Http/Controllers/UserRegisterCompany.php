@@ -24,7 +24,6 @@ class UserRegisterCompany extends Controller
         if($role == 'employer'){
             $company_data = DB::table('users')
             ->join('employers', 'employers.employer_uid', '=', 'users.id')
-            ->where('users.id',Auth::user()->id)
             ->get();
             
             return view('partials.employer.employer.register_campnay',compact('company_data'));
