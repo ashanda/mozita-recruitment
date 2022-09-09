@@ -30,9 +30,7 @@
               <img src="{{ asset('images/dashboard/people.svg') }}" alt="people">
               <div class="weather-info">
                 <div class="d-flex">
-                  <div>
-                    <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
-                  </div>
+                  
                   <div class="ml-2">
                     @php
                       $data = userDetails();
