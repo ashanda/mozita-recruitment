@@ -51,13 +51,10 @@
                             @foreach ($user_data as $employee)
                             <tr>
                                 <td>
-                                    <form action="{{ route('user_employee.destroy',$employee->id) }}" method="Post">
+                                    
                                         <a class="btn btn-warning" href="{{ route('user_employee.show',$employee->id) }}">View</a>
-                                        <!-- <a class="btn btn-primary" href="{{ route('user_employee.edit',$employee->id) }}">Edit</a> -->
-                                        @csrf
-                                        @method('DELETE')
-                                        <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
-                                    </form>
+                                        <a class="btn btn-primary" href="{{ route('user_employee.edit',$employee->id) }}">Edit</a> -->
+                                        
                                 </td>
                                 <td>{{ $employee->employee_id }}</td>
                                 @php
