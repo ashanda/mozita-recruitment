@@ -36481,7 +36481,7 @@ textarea.form-control {
     position: absolute;
     z-index: 9999;
     width: 100%;
-    top: 10px;
+    top: 50px;
     right: 200%; 
     border-radius: 10px; 
 }
