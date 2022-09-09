@@ -36478,15 +36478,21 @@ textarea.form-control {
 
 .hover_model {
     display: none;
-    position: relative;
+    position: absolute;
     z-index: 9999;
-    overflow: auto;
     width: 100%;
     top: 10px;
-    transition: all;
+    right: 70%;  
+}
+.hover_model table{
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 17px 4px rgb(0 0 0 / 63%);
+    box-shadow: 0px 0px 17px 4px rgb(0 0 0 / 63%);
+    border-radius: 10px;
 }
 .hoverModel{
     cursor: pointer;
+    position: relative;
 }
 .hoverModel:hover .hover_model {
     display: block;
