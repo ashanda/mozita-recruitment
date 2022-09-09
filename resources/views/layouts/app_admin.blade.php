@@ -341,7 +341,7 @@
       var i = 0;
       $("#add-note").click(function () {
           ++i;
-          $("#dynamicAddRemove").append('<div class ="row" id="inputFormRow"><input type="hidden" name="addMoreInputFields['+i+'][note_row_id]" value=""><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Notes :</strong><textarea name="addMoreInputFields['+i+'][note]" class="form-control"></textarea></div></div><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Reminder :</strong><input type="datetime-local" name="addMoreInputFields['+i+'][reminder]" class="form-control"></div></div><div class="col-xs-2 col-sm-2 col-md-2 text-end"><div class="form-group add_new_item"><button type="button" id="removeRow" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div></div>');
+          $("#dynamicAddRemove").append('<div class ="row" id="inputFormRow"><input type="hidden" name="addMoreInputFields['+i+'][note_row_id]" value=""><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Notes :</strong><input type="text" name="addMoreInputFields['+i+'][note]" class="form-control"></div></div><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Reminder :</strong><input type="datetime-local" name="addMoreInputFields['+i+'][reminder]" class="form-control"></div></div><div class="col-xs-2 col-sm-2 col-md-2 text-end"><div class="form-group add_new_item"><button type="button" id="removeRow" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div></div>');
       });
       $(document).on('click', '#removeRow', function () {
         $(this).closest('#inputFormRow').remove();

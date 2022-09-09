@@ -15,6 +15,15 @@
       </a>
       
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('user_register_company.index') }}" >
+        <i class="bi bi-people menu-icon"></i>
+        <span class="menu-title">Registerd Companies</span>
+        
+      </a>
+      
+    </li>
  
     
     

@@ -15,6 +15,11 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RegisterCompany;
 use App\Http\Controllers\UserNotificationController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\NotesController;
+use App\Http\Controllers\UserRegisterCompany;
+use App\Http\Controllers\UserContactController;
+use App\Http\Controllers\UserNotesController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -72,7 +77,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::resource('/admin/settings', SettingsController::class);
     Route::resource('/admin/notification', NotificationController::class);
     Route::get('/admin/contact/{id}',[ContactController::class,'destroy'])->name('contact.destroy');
-    
+    Route::get('/admin/note/{id}',[NotesController::class,'destroy'])->name('note.destroy');
     Route::get('status', [UserController::class, 'userOnlineStatus']);
 });
   
@@ -86,6 +91,9 @@ Route::middleware(['auth', 'user-access:employer'])->group(function () {
     Route::get('/employer/home', [HomeController::class, 'employerHome'])->name('employer.home');
     Route::resource('/employer/user_employer', UserEmployersController::class);
     Route::resource('/employer/user_notification', UserNotificationController::class);
+    Route::resource('/employer/user_register_company', UserRegisterCompany::class);
+    Route::get('/employer/user_contact/{id}',[UserContactController::class,'destroy'])->name('user_contact.destroy');
+    Route::get('/employer/user_note/{id}',[UserNotesController::class,'destroy'])->name('user_note.destroy');
     //------------------------------------------
 
 });

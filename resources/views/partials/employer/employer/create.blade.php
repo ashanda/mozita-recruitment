@@ -52,7 +52,6 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                   <strong>Business Industry :</strong>
@@ -107,112 +106,106 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            
 
                         </div>
                         <div class="col-xs-8 col-sm-8 col-md-8">
+                         
+                        <div class="row">
+                        
+                        <div id="dynamicAddRemoveContact">
+                        <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="form-group">
+                                <strong>Contact person :</strong>
+                                <input type="text" name="addMoreInputFieldsContact[0][contact_person]" class="form-control">
+                                @error('addMoreInputFieldsContact[0][contact_person]')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong>Designation :</strong>
+                                <input type="text" name="addMoreInputFieldsContact[0][designation]" class="form-control">
+                                @error('position')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 text-end">
+                          <div class="form-group add_new_item">
 
-                            <div class="row">
-
-                                <div id="dynamicAddRemoveContact">
-                                    <div class="row">
-                                        <div class="col-xs-4 col-sm-4 col-md-4">
-                                            <div class="form-group">
-                                                <strong>Contact person :</strong>
-                                                <input type="text" name="addMoreInputFieldsContact[0][contact_person]"
-                                                    class="form-control">
-                                                @error('addMoreInputFieldsContact[0][contact_person]')
-                                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group">
-                                                <strong>Designation :</strong>
-                                                <input type="text" name="addMoreInputFieldsContact[0][designation]"
-                                                    class="form-control">
-                                                @error('position')
-                                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-2 col-sm-2 col-md-2 text-end">
-                                            <div class="form-group add_new_item">
-
-                                                <button type="button" name="addContact" id="add-contact"
-                                                    class="btn btn-outline-primary ml-auto"><i
-                                                        class="bi bi-plus-circle"></i></button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group">
-                                                <strong>Phone Number :</strong>
-                                                <input type="text" name="addMoreInputFieldsContact[0][phone]"
-                                                    class="form-control">
-                                                @error('addMoreInputFieldsContact[0][phone]')
-                                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <div class="form-group">
-                                                <strong>Email address :</strong>
-                                                <input type="email" name="addMoreInputFieldsContact[0][email]"
-                                                    class="form-control">
-                                                @error('addMoreInputFieldsContact[0][email]')
-                                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <button type="button" name="addContact" id="add-contact"
+                            class="btn btn-outline-primary ml-auto"><i
+                                class="bi bi-plus-circle"></i></button>
+                          </div>
+                      </div>
+                    
+                    </div>                              
+                        
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="form-group">
+                              <strong>Phone Number :</strong>
+                              <input type="text" name="addMoreInputFieldsContact[0][phone]" class="form-control">
+                              @error('addMoreInputFieldsContact[0][phone]')
+                              <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                              @enderror
+                          </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong>Email address :</strong>
+                                <input type="email" name="addMoreInputFieldsContact[0][email]" class="form-control">
+                                @error('addMoreInputFieldsContact[0][email]')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div id="dynamicAddRemove">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
-                                        <div id="dynamicAddRemove">
-                                            <div class="row">
-                                                <div class="col-xs-5 col-sm-5 col-md-5">
-                                                    <div class="form-group">
-                                                        <strong>Notes :</strong>
-                                                        <textarea name="addMoreInputFields[0][note]"
-                                                            class="form-control">
-</textarea>
-                                                        @error('addMoreInputFields[0][note]')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-5 col-sm-5 col-md-5">
-                                                    <div class="form-group">
-                                                        <strong>Reminder :</strong>
-                                                        <input type="datetime-local"
-                                                            name="addMoreInputFields[0][reminder]" class="form-control">
-                                                        @error('addMoreInputFields[0][reminder]')
-                                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-2 col-sm-2 col-md-2 text-end">
-                                                    <div class="form-group add_new_item">
-
-                                                        <button type="button" name="add" id="add-note"
-                                                            class="btn btn-outline-primary"><i
-                                                                class="bi bi-plus-circle"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="col-xs-5 col-sm-5 col-md-5">
+                                        <div class="form-group">
+                                            <strong>Notes :</strong>
+                                            <input type="text" name="addMoreInputFields[0][note]" class="form-control">
+                                            @error('addMoreInputFields[0][note]')
+                                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                    <div class="col-xs-5 col-sm-5 col-md-5">
+                                        <div class="form-group">
+                                            <strong>Reminder :</strong>
+                                            <input type="datetime-local" name="addMoreInputFields[0][reminder]"
+                                                class="form-control">
+                                            @error('addMoreInputFields[0][reminder]')
+                                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2 col-sm-2 col-md-2 text-end">
+                                        <div class="form-group add_new_item">
+
+                                            <button type="button" name="add" id="add-note"
+                                                class="btn btn-outline-primary"><i
+                                                    class="bi bi-plus-circle"></i></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-
-
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>    
+                      </div>
                         </div>
+
+
+
+                      </div>
                     </div>
 
                 </form>

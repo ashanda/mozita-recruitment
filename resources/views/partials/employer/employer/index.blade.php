@@ -54,9 +54,9 @@
                             @foreach ($user_data as $employer)
                             <tr>
                                 <td>
-                                    <form action="{{ route('employer.destroy',$employer->id) }}" method="Post">
-                                        <a class="btn btn-warning" href="{{ route('employer.show',$employer->id) }}">View</a>
-                                        <a class="btn btn-primary" href="{{ route('employer.edit',$employer->id) }}">Edit</a>
+                                    <form action="{{ route('user_employer.destroy',$employer->id) }}" method="Post">
+                                        <a class="btn btn-warning" href="{{ route('user_employer.show',$employer->id) }}">View</a>
+                                        <a class="btn btn-primary" href="{{ route('user_employer.edit',$employer->id) }}">Edit</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -71,26 +71,30 @@
                                 <td>{{ $employer->company_phone }}</td>
                                 <td>{{ $employer->website }}</td>
                                 @php
-                                $user_contact = getUserContact($employer->employer_id,$employer->employer_uid);
+                                $user_contact = getUserContactAll($employer->employer_id,$employer->employer_uid);
                                 @endphp
                                 @if ($user_contact == null)
                                 <td>{{ '-' }}</td>
                                 @else
-                                <td class="hoverModel">{{ $user_contact->phone_number }}
+                                <td class="hoverModel">{{ 'View Contact Details' }}
                                     <div class="hover_model">
                                     <table class="table">
                                             <tr>
-                                               <th>Head 1</th>
-                                               <th>Head 2</th>
-                                               <th>Head 3</th>
-                                               <th>Head 4</th>
+                                               <th>Conatct Person</th>
+                                               <th>Designation</th>
+                                               <th>Phone</th>
+                                               <th>Email</th>
                                             </tr>
+                                            @foreach ( $user_contact as $contact )
                                             <tr>
-                                                <td>Data 1</td>
-                                                <td>Data 2</td>
-                                                <td>Data 3</td>
-                                                <td>Data 4</td>
+                                                <td>{{ $contact->contact_person }}</td>
+                                                <td>{{ $contact->designation }}</td>
+                                                <td>{{ $contact->phone_number }}</td>
+                                                <td>{{ $contact->email }}</td>
                                             </tr>
+                                            @endforeach
+                                            
+
                                         </table>
                                     </div>
                                 </td>

@@ -236,15 +236,20 @@
                                                 </div>
                                                 <div class="col-xs-2 col-sm-2 col-md-2 text-end">
                                                     <div class="form-group add_new_item">
-
+                                                        @if ($x==10000000)
                                                         <button type="button" name="add" id="add-note"
                                                             class="btn btn-outline-primary"><i
                                                                 class="bi bi-plus-circle"></i></button>
+                                                                @else
+                                                                <button class="btn btn-outline-primary ml-auto"><a href="{{ route('note.destroy',$note->id) }}"><i
+                                                                    class="bi bi-dash-circle"></i></a></button>
+
+                                                            @endif                                                                
                                                     </div>
                                                 </div>
                                             </div>
                                             @php
-                                      $i++;
+                                      $x++;
                                     @endphp
                                     @endforeach
                                         </div>

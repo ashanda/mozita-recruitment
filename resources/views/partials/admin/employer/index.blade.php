@@ -69,26 +69,30 @@
                                 <td>{{ $employer->company_phone }}</td>
                                 <td>{{ $employer->website }}</td>
                                 @php
-                                $user_contact = getUserContact($employer->employer_id,$employer->employer_uid);
+                                $user_contact =  getUserContactAll($employer->employer_id,$employer->employer_uid);
                                 @endphp
                                 @if ($user_contact == null)
                                 <td>{{ '-' }}</td>
                                 @else
-                                <td class="hoverModel">{{ $user_contact->phone_number }}
+                                <td class="hoverModel">{{ 'View Contact Details' }}
                                     <div class="hover_model">
                                         <table class="table">
                                             <tr>
-                                               <th>Head 1</th>
-                                               <th>Head 2</th>
-                                               <th>Head 3</th>
-                                               <th>Head 4</th>
+                                               <th>Conatct Person</th>
+                                               <th>Designation</th>
+                                               <th>Phone</th>
+                                               <th>Email</th>
                                             </tr>
+                                            @foreach ( $user_contact as $contact )
                                             <tr>
-                                                <td>Data 1</td>
-                                                <td>Data 2</td>
-                                                <td>Data 3</td>
-                                                <td>Data 4</td>
+                                                <td>{{ $contact->contact_person }}</td>
+                                                <td>{{ $contact->designation }}</td>
+                                                <td>{{ $contact->phone_number }}</td>
+                                                <td>{{ $contact->email }}</td>
                                             </tr>
+                                            @endforeach
+                                            
+
                                         </table>
                                     </div>
                                 </td>

@@ -25,6 +25,7 @@
   <link rel="shortcut icon" href="{{ asset('upload/setting/'.getSetting()->app_favicon) }}" />
 </head>
 <body>
+  @include('sweetalert::alert')
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -330,7 +331,7 @@
         var i = 0;
       $("#add-contact").click(function () {
           ++i;
-          $("#dynamicAddRemoveContact").append('<div class ="row" id="inputFormRow"><div class="col-xs-4 col-sm-4 col-md-4"><div class="form-group"><strong>Contact person :</strong><input type="text" name="addMoreInputFieldsContact['+i+'][contact_person]" class="form-control"></div></div><div class="col-xs-6 col-sm-6 col-md-6"><div class="form-group"><strong>Designation :</strong><input type="text" name="addMoreInputFieldsContact['+i+'][designation]" class="form-control"></div></div><div class="col-xs-2 col-sm-2 col-md-2 text-end"><div class="form-group add_new_item"><button type="button" id="removeRow" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div><div class="col-xs-6 col-sm-6 col-md-6"><div class="form-group"><strong>Phone Number :</strong><input type="text" name="addMoreInputFieldsContact['+i+'][phone]" class="form-control"></div></div><div class="col-xs-6 col-sm-6 col-md-6"><div class="form-group"><strong>Email address :</strong><input type="email" name="addMoreInputFieldsContact['+i+'][email]" class="form-control"></div></div></div>');
+          $("#dynamicAddRemoveContact").append('<div class ="row" id="inputFormRow"><input type="hidden" name="addMoreInputFieldsContact['+i+'][row_id]" value=""><div class="col-xs-4 col-sm-4 col-md-4"><div class="form-group"><strong>Contact person :</strong><input type="text" name="addMoreInputFieldsContact['+i+'][contact_person]" class="form-control"></div></div><div class="col-xs-6 col-sm-6 col-md-6"><div class="form-group"><strong>Designation :</strong><input type="text" name="addMoreInputFieldsContact['+i+'][designation]" class="form-control"></div></div><div class="col-xs-2 col-sm-2 col-md-2 text-end"><div class="form-group add_new_item"><button type="button" id="removeRow" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div><div class="col-xs-6 col-sm-6 col-md-6"><div class="form-group"><strong>Phone Number :</strong><input type="text" name="addMoreInputFieldsContact['+i+'][phone]" class="form-control"></div></div><div class="col-xs-6 col-sm-6 col-md-6"><div class="form-group"><strong>Email address :</strong><input type="email" name="addMoreInputFieldsContact['+i+'][email]" class="form-control"></div></div></div>');
       });
       $(document).on('click', '#removeRow', function () {
         $(this).closest('#inputFormRow').remove();
@@ -339,8 +340,12 @@
       var i = 0;
       $("#add-note").click(function () {
           ++i;
-          $("#dynamicAddRemove").append('<div class ="row" id="inputFormRow"><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Notes :</strong><textarea name="addMoreInputFields['+i+'][note]" class="form-control"></textarea></div></div><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Reminder :</strong><input type="datetime-local" name="addMoreInputFields['+i+'][reminder]" class="form-control"></div></div><div class="col-xs-2 col-sm-2 col-md-2 text-end"><div class="form-group add_new_item"><button type="button" id="removeRow" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div></div>');
+          $("#dynamicAddRemove").append('<div class ="row" id="inputFormRow"><input type="hidden" name="addMoreInputFields['+i+'][note_row_id]" value=""><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Notes :</strong><input type="text" name="addMoreInputFields['+i+'][note]" class="form-control"></div></div><div class="col-xs-5 col-sm-5 col-md-5"><div class="form-group"><strong>Reminder :</strong><input type="datetime-local" name="addMoreInputFields['+i+'][reminder]" class="form-control"></div></div><div class="col-xs-2 col-sm-2 col-md-2 text-end"><div class="form-group add_new_item"><button type="button" id="removeRow" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div></div>');
       });
+      $(document).on('click', '#removeRow', function () {
+        $(this).closest('#inputFormRow').remove();
+      });
+
       $(document).on('click', '#removeRow', function () {
         $(this).closest('#inputFormRow').remove();
       });
