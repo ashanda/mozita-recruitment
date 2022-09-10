@@ -372,6 +372,13 @@
             });
         });
     });
+    $('document').ready(function()
+  {
+      $('textarea').each(function(){
+              $(this).val($(this).val().trim());
+          }
+      );
+  });
   </script>
   <!-- End custom js for this page-->
 </body>

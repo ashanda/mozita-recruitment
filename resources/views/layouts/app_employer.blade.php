@@ -349,6 +349,13 @@
       $(document).on('click', '#removeRow', function () {
         $(this).closest('#inputFormRow').remove();
       });
+      $('document').ready(function()
+  {
+      $('textarea').each(function(){
+              $(this).val($(this).val().trim());
+          }
+      );
+  });
     </script>
   <!-- End custom js for this page-->
 </body>

@@ -32,14 +32,7 @@
           <img src="{{ asset('images/dashboard/people.svg') }}" alt="people">
           <div class="weather-info">
             <div class="d-flex">
-              <div class="ml-2">
-                @php
-                  $data = userDetails();
-                @endphp
               
-                <h4 class="location font-weight-normal">{{ $data->cityName }}</h4>
-                <h6 class="font-weight-normal">{{ $data->countryName }}</h6>
-              </div>
             </div>
           </div>
         </div>
