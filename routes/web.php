@@ -43,6 +43,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::any('/register', function() {
+    return redirect('/login');
+});
+
 Auth::routes();
 
 Route::get('/ajax-subcat',function (Request $request) {
