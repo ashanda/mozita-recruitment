@@ -89,5 +89,14 @@ class UserNotesController extends Controller
 
         }
     }
+        public function delete(Request $request)
+        {
+        
+        if (Notes::where('id', $request->id)->delete()) {
+            Alert::success('Success', 'Company/Expert Area and Remarks delete successfully');
+            return redirect()->back();
+
+        }
+    }
     
 }

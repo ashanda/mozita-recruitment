@@ -350,7 +350,7 @@
       var i = 0;
       $("#add-note2").click(function () {
           ++i;
-          $("#dynamicAddRemove2").append('<div class ="row" id="inputFormRow"><div class="col-xs-10 col-sm-10 col-md-10"><div class="form-group"><strong>Company/Expert Area and Remarks :</strong><textarea name="addMoreInputFields['+i+'][note]" class="form-control"></textarea></div></div><div class="col-xs-2 col-sm-2 col-md-2 text-end"><div class="form-group add_new_item"><button type="button" id="removeRow" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div></div>');
+          $("#dynamicAddRemove2").append('<div class ="row" id="inputFormRow"><input type="hidden" name="addMoreInputFields['+i+'][note_row_id]" value=""><div class="col-xs-10 col-sm-10 col-md-10"><div class="form-group"><strong>Company/Expert Area and Remarks :</strong><input type="text" name="addMoreInputFields['+i+'][note]" class="form-control"></div></div><div class="col-xs-2 col-sm-2 col-md-2 text-end"><div class="form-group add_new_item"><button type="button" id="removeRow" class="btn btn-danger remove-tr" ><i class="bi bi-dash-circle"></i></button></div></div></div>');
       });
       $(document).on('click', '#removeRow', function () {
         $(this).closest('#inputFormRow').remove();

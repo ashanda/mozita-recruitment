@@ -53,7 +53,7 @@
                                 <td>
                                     
                                         <a class="btn btn-warning" href="{{ route('user_employee.show',$employee->id) }}">View</a>
-                                        <a class="btn btn-primary" href="{{ route('user_employee.edit',$employee->id) }}">Edit</a> -->
+                                        <a class="btn btn-primary" href="{{ route('user_employee.edit',$employee->id) }}">Edit</a>
                                         
                                 </td>
                                 <td>{{ $employee->employee_id }}</td>

@@ -12,7 +12,12 @@ use App\Models\Notification;
 
 
 //test 
-
+function parent_cat_name_find($cat_id){
+   $parent_cat_name =  DB::table('categories')
+             ->where('id',  $cat_id)
+             ->first();
+   return $parent_cat_name;
+}
 
 // cron job
 function notify_user(){

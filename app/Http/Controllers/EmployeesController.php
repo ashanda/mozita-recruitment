@@ -173,11 +173,53 @@ class EmployeesController extends Controller
      * @param  \App\Models\Employer  $employer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employer)
+    public function update(Request $request, $id)
+    
     {
-        //
+        if($request->file('cv_file')){
+            $file= $request->file('cv_file');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('/upload/cv'), $filename);
+            $update_cv = $filename;
+          }else{
+            $update_cv = $request->cv_file_update;
+          }
+    
+          if($request->file('attachment')){
+            $file= $request->file('attachment');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('/upload/attachment'), $filename);
+            $update_attachment = $filename;
+          }else{
+            $update_attachment = $request->attachment_update;
+          }
+        
+        $User_Update = Employee::where("id", $id)->update(["job_title" => $request->job_name,"job_category" => $request->category, "job_sub_category" => $request->subcategory, "job_role" => $request->job_role,'candidate_name'=> $request->candidate_name, 'candidate_email'=> $request->candidate_email,'cv'=> $update_cv,'attachment'=> $update_attachment]);
+        
+        
+        $unq_id = $request->unq_id;
+        $employees_add_more = $request->addMoreInputFields;
+        foreach ($employees_add_more as $key=> $employees) {
+            if($employees['note_row_id'] == null){
+                $note = new Notes();
+                $note->note_id = $unq_id;
+                $note->emp_uid = Auth::user()->id;
+                $note->note = $employees['note'];
+               // $note->remind_me = $employees['reminder']; 
+                if($employees['note'] == null ){
+    
+                }else{
+                 $note->save();
+                }
+         }else{
+            $matchThese = ['id'=>$employees['note_row_id']];
+            Notes::updateOrCreate($matchThese,['note'=>$employees['note']]);
+        
     }
-
+    }
+    Alert::success('Success', 'Employee Update successfully');
+    return redirect()->back();
+}
     /**
      * Remove the specified resource from storage.
      *

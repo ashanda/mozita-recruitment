@@ -110,6 +110,7 @@ Route::middleware(['auth', 'user-access:employee'])->group(function () {
     Route::resource('/employee/user_employee',  UserEmployeesController::class);
     Route::resource('/employee/user_categories', UserCategoryController::class);
     Route::get('/employee/sub_create', [UserCategoryController::class,'sub_create']);
+    Route::get('/employee/employee_note/{id}',[UserNotesController::class,'delete'])->name('employee_note.delete');
     //------------------------------------------
 
 });

@@ -53,7 +53,7 @@ class UserEmployeesController extends Controller
     public function store(Request $request)
     {
         $cv_file = $request->file('cv_file')->getClientOriginalName();
-        $attachment = $request->file('attachment')->getClientOriginalName();
+           $attachment = $request->file('attachment')->getClientOriginalName();
            
     
            $employee_id = UniqueRandomNumbersWithinRange(1,100000);
@@ -63,6 +63,7 @@ class UserEmployeesController extends Controller
            $save->job_title = $request->job_name;
            $save->job_category = $request->category;
            $save->job_sub_category = $request->subcategory;
+           $save->job_role = $request->job_role;
            $save->candidate_name = $request->candidate_name;
            $save->candidate_email = $request->candidate_email;
 
@@ -85,16 +86,23 @@ class UserEmployeesController extends Controller
            $employees_add_more = $request->addMoreInputFields;
         
         //add more save note table;
+        
         foreach ($employees_add_more as $key=> $employees) {
             
             $note = new Notes();
             $note->note_id = $employee_id;
             $note->emp_uid = Auth::user()->id;
             $note->note = $employees['note'];
-            $note->remind_me = $employees['reminder']; 
-            $note->save();
+           // $note->remind_me = $employees['reminder']; 
+            if($employees['note'] == null ){
+
+            }else{
+             $note->save();
+            }
+
+           
             
-        }
+         }
            $save->save();
            Alert::success('Success', 'Employee Added Successfully');
            $user_data = DB::table('users')
@@ -135,8 +143,9 @@ class UserEmployeesController extends Controller
     {
         $role = Auth::user()->type;
         $employee = Employee::find($id);
+        $s = Category::all()->where('parent_id','=','0');
         if($role == 'employee'){
-            return view('partials.employer.employee.edit',compact('employee','id'));
+            return view('partials.employee.employee.edit',compact('employee','id','s'));
         }
 
         
@@ -151,7 +160,49 @@ class UserEmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->file('cv_file')){
+            $file= $request->file('cv_file');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('/upload/cv'), $filename);
+            $update_cv = $filename;
+          }else{
+            $update_cv = $request->cv_file_update;
+          }
+    
+          if($request->file('attachment')){
+            $file= $request->file('attachment');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('/upload/attachment'), $filename);
+            $update_attachment = $filename;
+          }else{
+            $update_attachment = $request->attachment_update;
+          }
+        
+        $User_Update = Employee::where("id", $id)->update(["job_title" => $request->job_name,"job_category" => $request->category, "job_sub_category" => $request->subcategory, "job_role" => $request->job_role,'candidate_name'=> $request->candidate_name, 'candidate_email'=> $request->candidate_email,'cv'=> $update_cv,'attachment'=> $update_attachment]);
+        
+        
+        $unq_id = $request->unq_id;
+        $employees_add_more = $request->addMoreInputFields;
+        foreach ($employees_add_more as $key=> $employees) {
+            if($employees['note_row_id'] == null){
+                $note = new Notes();
+                $note->note_id = $unq_id;
+                $note->emp_uid = Auth::user()->id;
+                $note->note = $employees['note'];
+               // $note->remind_me = $employees['reminder']; 
+                if($employees['note'] == null ){
+    
+                }else{
+                 $note->save();
+                }
+         }else{
+            $matchThese = ['id'=>$employees['note_row_id']];
+            Notes::updateOrCreate($matchThese,['note'=>$employees['note']]);
+        
+    }
+    }
+    Alert::success('Success', 'Employee Update successfully');
+    return redirect()->back();
     }
 
     /**
