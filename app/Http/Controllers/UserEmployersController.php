@@ -166,6 +166,7 @@ class UserEmployersController extends Controller
         
         $employers_add_more_contact = $request->addMoreInputFieldsContact;
         $unq_id = $request->employer_id;
+        
         foreach($employers_add_more_contact as $key=> $employers){
             
             if($employers['row_id'] == null){

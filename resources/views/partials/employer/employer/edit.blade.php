@@ -216,8 +216,8 @@
                                                     <input type="hidden" name="addMoreInputFields[{{ $x }}][note_row_id]" value="{{ $note->id }}">
                                                     <div class="form-group">
                                                         <strong>Notes :</strong>
-                                                        <input type="text" name="addMoreInputFields[{{ $x }}][note]"
-                                                            class="form-control" value="{{ $note->note }}">
+                                                        <textarea name="addMoreInputFields[{{ $x }}][note]"
+                                                            class="form-control" value="{{ $note->note }}">{{ $note->note }}</textarea>
     </textarea>
                                                         @error('addMoreInputFields[{{ $x }}][note]')
                                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

@@ -34,6 +34,8 @@
                                         value="{{ $employer->company_name }}">
                                         <input type="hidden" name="employer_id" class="form-control"
                                         value="{{ $employer->employer_id }}">
+                                        <input type="hidden" name="employer_uid" class="form-control"
+                                        value="{{ $employer->employer_uid }}">
                                     @error('company_name')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
@@ -131,6 +133,7 @@
                                   @endphp
                                   @foreach ($contacts as $contact)
                                   <input type="hidden" name="unq_id" value="{{ $contact->unq_id }}">
+                                  
                                     <div class="row">
 
                                         <div class="col-xs-4 col-sm-4 col-md-4">
@@ -208,6 +211,7 @@
                                         <div id="dynamicAddRemove">
                                         @php
                                         $notes = getUserNotesAll($employer->employer_id,$employer->employer_uid);
+                                        
                                         $x=10000000;
                                         @endphp
                                         @foreach ($notes as $note)
@@ -216,8 +220,10 @@
                                                     <input type="hidden" name="addMoreInputFields[{{ $x }}][note_row_id]" value="{{ $note->id }}">
                                                     <div class="form-group">
                                                         <strong>Notes :</strong>
-                                                        <input type="text" name="addMoreInputFields[{{ $x }}][note]"
+                                                        <textarea name="addMoreInputFields[{{ $x }}][note]"
                                                             class="form-control" value="{{ $note->note }}">
+                                                            {{ $note->note }}
+                                                        </textarea>    
     </textarea>
                                                         @error('addMoreInputFields[{{ $x }}][note]')
                                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

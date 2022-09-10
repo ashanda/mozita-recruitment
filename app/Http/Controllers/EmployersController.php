@@ -206,12 +206,13 @@ class EmployersController extends Controller
         
         $employers_add_more_contact = $request->addMoreInputFieldsContact;
         $unq_id = $request->employer_id;
+        $emp_id = $request->employer_uid;
         foreach($employers_add_more_contact as $key=> $employers){
             
             if($employers['row_id'] == null){
             $contact = new Contact();
             $contact->unq_id = $unq_id;
-            $contact->emp_uid = Auth::user()->id;
+            $contact->emp_uid = $emp_id;
             $contact->contact_person = $employers['contact_person'];
             $contact->designation = $employers['designation'];
             $contact->phone_number = $employers['phone'];
@@ -233,7 +234,7 @@ class EmployersController extends Controller
             if($employers['note_row_id'] == null){
             $note = new Notes();
             $note->note_id = $unq_id;
-            $note->emp_uid = Auth::user()->id;
+            $note->emp_uid = $emp_id;
             $note->note = $employers['note'];
             $note->remind_me = $employers['reminder']; 
             if($employers['note'] == null && $employers['reminder']){

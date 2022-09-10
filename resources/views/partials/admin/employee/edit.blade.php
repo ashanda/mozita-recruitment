@@ -30,6 +30,8 @@
                           <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                               <strong>Job Title :</strong>
+                              <input type="hidden" name="employee_uid" class="form-control"
+                                        value="{{ $employee->employee_uid }}">
                               <input type="text" name="job_name" class="form-control" value="{{ $employee->job_title }}" required>
                               @error('job_name')
                               <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -122,7 +124,7 @@
                                 <div class="form-group">
                                   <input type="hidden" name="addMoreInputFields[{{ $x }}][note_row_id]" value="{{ $note->id }}">
                                   <strong>Company/Expert Area and Remarks :</strong>
-                                  <input type="text" name="addMoreInputFields[{{ $x }}][note]" class="form-control" value="{{ $note->note }}">
+                                  <textarea name="addMoreInputFields[{{ $x }}][note]" class="form-control" value="{{ $note->note }}">{{ $note->note }}</textarea>
                                   @error('addMoreInputFields[{{ $x }}][note]')
                                   <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                   @enderror

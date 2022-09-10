@@ -178,17 +178,18 @@
 
 
                             <div class="row">
-                                <div class="col-xs-5 col-sm-5 col-md-5">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <strong>Notes :</strong>
-                                        <input type="text" name="addMoreInputFields[0][note]" class="form-control"
-                                            value="{{ $note->note  }}" readonly>
+                                        <textarea type="text" name="addMoreInputFields[0][note]" class="form-control"
+                                            value="{{ $note->note  }}" readonly>{{ $note->note  }}
+                                        </textarea>    
                                         @error('addMoreInputFields[0][note]')
                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-xs-5 col-sm-5 col-md-5">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <strong>Reminder :</strong>
                                         <input type="datetime-local" name="addMoreInputFields[0][reminder]"

@@ -28,7 +28,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Company name :</strong>
-                                    <input type="text" name="company_name" class="form-control">
+                                    <input type="text" name="company_name" class="form-control" required>
                                     @error('company_name')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
@@ -37,7 +37,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Trading As :</strong>
-                                    <input type="text" name="trading" class="form-control">
+                                    <input type="text" name="trading" class="form-control" required>
                                     @error('trading')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
@@ -46,7 +46,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>NZBN :</strong>
-                                    <input type="text" name="nzbn" class="form-control">
+                                    <input type="text" name="nzbn" class="form-control" required>
                                     @error('nzbn')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
@@ -55,7 +55,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                   <strong>Business Industry :</strong>
-                                  <input type="text" name="business_industry" class="form-control">
+                                  <input type="text" name="business_industry" class="form-control" required>
                                   @error('business_industry')
                                   <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                   @enderror
@@ -64,7 +64,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Branch :</strong>
-                                    <input type="text" name="branch" class="form-control">
+                                    <input type="text" name="branch" class="form-control" required>
                                     @error('branch')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
@@ -73,7 +73,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                               <div class="form-group">
                                   <strong>Branch Address:</strong>
-                                  <input type="text" name="branch_address" class="form-control">
+                                  <input type="text" name="branch_address" class="form-control" required>
                                   @error('branch_address')
                                   <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                   @enderror
@@ -82,7 +82,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Company Phone Number :</strong>
-                                    <input type="text" name="company_phone" class="form-control">
+                                    <input type="text" name="company_phone" class="form-control" required>
                                     @error('company_phone')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
@@ -91,7 +91,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Company Website :</strong>
-                                    <input type="text" name="website" class="form-control">
+                                    <input type="text" name="website" class="form-control" required>
                                     @error('website')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
@@ -100,7 +100,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>First Meet Up :</strong>
-                                    <input type="date" name="dfcm" class="form-control">
+                                    <input type="date" name="dfcm" class="form-control" required>
                                     @error('dfcm')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                     @enderror
@@ -118,7 +118,7 @@
                         <div class="col-xs-4 col-sm-4 col-md-4">
                             <div class="form-group">
                                 <strong>Contact person :</strong>
-                                <input type="text" name="addMoreInputFieldsContact[0][contact_person]" class="form-control">
+                                <input type="text" name="addMoreInputFieldsContact[0][contact_person]" class="form-control" required>
                                 @error('addMoreInputFieldsContact[0][contact_person]')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
@@ -127,7 +127,7 @@
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <strong>Designation :</strong>
-                                <input type="text" name="addMoreInputFieldsContact[0][designation]" class="form-control">
+                                <input type="text" name="addMoreInputFieldsContact[0][designation]" class="form-control" required>
                                 @error('position')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
@@ -148,7 +148,7 @@
                         <div class="col-xs-6 col-sm-6 col-md-6">
                           <div class="form-group">
                               <strong>Phone Number :</strong>
-                              <input type="text" name="addMoreInputFieldsContact[0][phone]" class="form-control">
+                              <input type="text" name="addMoreInputFieldsContact[0][phone]" class="form-control" required>
                               @error('addMoreInputFieldsContact[0][phone]')
                               <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                               @enderror
@@ -157,7 +157,7 @@
                       <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="form-group">
                                 <strong>Email address :</strong>
-                                <input type="email" name="addMoreInputFieldsContact[0][email]" class="form-control">
+                                <input type="email" name="addMoreInputFieldsContact[0][email]" class="form-control" required>
                                 @error('addMoreInputFieldsContact[0][email]')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
@@ -172,7 +172,7 @@
                                     <div class="col-xs-5 col-sm-5 col-md-5">
                                         <div class="form-group">
                                             <strong>Notes :</strong>
-                                            <textarea name="addMoreInputFields[0][note]" class="form-control">
+                                            <textarea name="addMoreInputFields[0][note]" class="form-control" required>
     </textarea>
                                             @error('addMoreInputFields[0][note]')
                                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -183,7 +183,7 @@
                                         <div class="form-group">
                                             <strong>Reminder :</strong>
                                             <input type="datetime-local" name="addMoreInputFields[0][reminder]"
-                                                class="form-control">
+                                                class="form-control" required>
                                             @error('addMoreInputFields[0][reminder]')
                                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                             @enderror

@@ -107,7 +107,7 @@
           <div class="col-xs-5 col-sm-5 col-md-5">
             <div class="form-group">
             <strong>Remarks :</strong>
-            <input type="text" name="addMoreInputFields[0][note]" class="form-control" value="{{ $note->note }}" readonly>
+            <textarea name="addMoreInputFields[0][note]" class="form-control" value="{{ $note->note }}" readonly>{{ $note->note }}"</textarea>
             
             @error('addMoreInputFields[0][note]')
             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

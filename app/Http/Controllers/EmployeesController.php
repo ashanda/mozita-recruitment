@@ -198,12 +198,13 @@ class EmployeesController extends Controller
         
         
         $unq_id = $request->unq_id;
+        $emp_id = $request->employee_uid;
         $employees_add_more = $request->addMoreInputFields;
         foreach ($employees_add_more as $key=> $employees) {
             if($employees['note_row_id'] == null){
                 $note = new Notes();
                 $note->note_id = $unq_id;
-                $note->emp_uid = Auth::user()->id;
+                $note->emp_uid = $emp_id;
                 $note->note = $employees['note'];
                // $note->remind_me = $employees['reminder']; 
                 if($employees['note'] == null ){

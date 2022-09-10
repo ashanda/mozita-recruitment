@@ -105,7 +105,7 @@
                   <div class="col-xs-10 col-sm-10 col-md-10">
                     <div class="form-group">
                       <strong>Company/Expert Area and Remarks :</strong>
-                      <input type="text" name="addMoreInputFields[0][note]" class="form-control" required>
+                      <textarea name="addMoreInputFields[0][note]" class="form-control" required></textarea>
                       @error('addMoreInputFields[0][note]')
                       <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                       @enderror
