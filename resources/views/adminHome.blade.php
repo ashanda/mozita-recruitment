@@ -54,7 +54,7 @@
             <div class="card-body">
               <p class="mb-4">Total Employees</p>
               <p class="fs-30 mb-2">{{ employee_count() }}</p>
-              <p>22.00% (30 days)</p>
+              
             </div>
           </div>
         </div>
